@@ -1,5 +1,5 @@
-const express = require("express");
-const connectDB = require("./config/db");
+const express = require('express');
+const connectDB = require('./config/db');
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -7,18 +7,18 @@ const app = express();
 // Connect Database
 connectDB();
 
-// Define middleware here
+// Defining Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
+// Defining Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/entries', require('./routes/api/entries'));
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 
 // Start the API server
 app.listen(PORT, function() {
