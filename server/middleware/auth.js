@@ -1,5 +1,6 @@
-const config = require('config');
 const jwt = require('jsonwebtoken');
+const config = require('config');
+
 
 // Exporting the authentification function
 module.exports = function (req, res, next) {
