@@ -7,7 +7,7 @@ import CardImg from "../CardImage";
 import CardHeading from "../CardHeading";
 import "./style.css";
 
-function Card({ title, image, language, handleBtnClick }) {
+function Card({ title, image, language, /*handleBtnClick*/ }) {
   return (
     <div>
       <CardHeading title={title} />
