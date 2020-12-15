@@ -75,4 +75,4 @@
 //   );
 // }
 
-// export default Gallery;
+// export default Gallery; --> Trends
