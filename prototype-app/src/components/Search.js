@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import API from "../utils/API";
 
-export default class CreateUser extends Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeSearch = this.onChangeSearch.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: ''
+      search: ''
     }
   }
 
-  onChangeUsername(e) {
+  onChangeSearch(e) {
     this.setState({
-      username: e.target.value
+      search: e.target.value
     })
   }
 
@@ -23,10 +24,10 @@ export default class CreateUser extends Component {
     e.preventDefault();
 
     const user = {
-      username: this.state.username
+      search: this.state.search
     }
 
-    console.log(user);
+    console.log(search);
 
     axios.post('http://localhost:3001/users/add', user)
       .then(res => console.log(res.data));
