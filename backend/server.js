@@ -1,6 +1,3 @@
-require('dotenv').config();
-
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -13,6 +10,7 @@ const PORT = process.env.PORT || 3001;
 const express = require('express');
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -21,10 +19,14 @@ connectDB();
 
 
 // Defining Routes
+const entryRouter = require('./routes/entry');
+const usersRouter = require('./routes/users');
 
+app.use('/history', entryRouter);
+app.use('/users', usersRouter);
 
 
 // Start the API server
 app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+    console.log(`🌎  ==> Server now listening on PORT ${PORT}!`);
   });
