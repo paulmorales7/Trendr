@@ -18,10 +18,10 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
+import { mainListItems, secondaryListItems } from './dashboard/listItems';
+import Chart from './dashboard/Chart';
+import Deposits from './dashboard/Deposits';
+import Orders from './dashboard/Orders';
 
 function Copyright() {
   return (
@@ -99,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    backgroundColor:
-      theme.palette.mode === 'light'
-        ? theme.palette.grey[100]
-        : theme.palette.grey[900],
+    // backgroundColor:
+    //   theme.palette.mode === 'light'
+    //     ? theme.palette.grey[100]
+    //     : theme.palette.grey[900],
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
@@ -203,7 +203,7 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          <Box sx={{ pt: 4 }}>
+          <Box>
             <Copyright />
           </Box>
         </Container>
