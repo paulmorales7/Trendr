@@ -99,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    backgroundColor:
-      theme.palette.mode === 'light'
-        ? theme.palette.grey[100]
-        : theme.palette.grey[900],
+    // backgroundColor:
+    //   theme.palette.mode === 'light'
+    //     ? theme.palette.grey[100]
+    //     : theme.palette.grey[900],
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
@@ -203,7 +203,7 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          <Box sx={{ pt: 4 }}>
+          <Box>
             <Copyright />
           </Box>
         </Container>
