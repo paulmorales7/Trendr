@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import API from "../utils/API";
+import { gTrend } from '../../../backend/utils/gTrend';
 
 export default class Search extends Component {
   constructor(props) {
@@ -26,6 +27,8 @@ export default class Search extends Component {
     const user = {
       search: this.state.search
     }
+
+    gTrend();
 
     console.log(search);
 
