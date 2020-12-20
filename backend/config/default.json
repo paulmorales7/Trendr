@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://trendrUser:trendR123@cluster0.8gp71.mongodb.net/myTrendz?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+  }
