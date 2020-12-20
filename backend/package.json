@@ -18,6 +18,7 @@
     "google-trends-api": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.8",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "twitter": "^1.7.1"
   }
 }
