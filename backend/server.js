@@ -2,8 +2,6 @@ require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const {gTrend} =  require('./utils/gTrend')
-gTrend ()
 const connectDB = require('./config/db');
 const PORT = process.env.PORT || 3001;
 
@@ -22,9 +20,11 @@ connectDB();
 // Defining Routes
 const entryRouter = require('./routes/entry');
 const usersRouter = require('./routes/users');
+const trendsRouter = require('./routes/trends');
 
 app.use('/history', entryRouter);
 app.use('/users', usersRouter);
+app.use('/trends', trendsRouter);
 
 
 // Start the API server
