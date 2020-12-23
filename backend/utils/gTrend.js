@@ -6,7 +6,7 @@ function gTrend() {
 googleTrends.realTimeTrends({
     // trendDate: Date.now(),
     geo: 'US',
-    category: 'e'
+    category: 'all'
   }, function(err, results) {
     if (err) {
       console.log(err);
