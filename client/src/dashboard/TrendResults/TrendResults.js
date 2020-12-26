@@ -1,9 +1,7 @@
-import React from 'react';
+import React {useState, useEffect} from 'react';
 import axios from '../../axios'
 
-const displayResults = () => {
-    
-}
+// Frontenders refer to the axios.js page for our requests (gets, posts, puts, delete)
 
 
 
