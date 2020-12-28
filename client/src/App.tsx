@@ -14,9 +14,11 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import Chart from './dashboard/Chart';
-import Deposits from './dashboard/Deposits';
-import Orders from './dashboard/Orders';
+// import Chart from './dashboard/Chart';
+import CategoryBox from './dashboard/CategoryBox';
+import TrendrBody from './dashboard/TrendrBody';
+import TwitterStream from './dashboard/TwitterStream';
+
 
 function Copyright() {
   return (
@@ -162,22 +164,22 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
+            {/* CategoryBox */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Deposits />
+                <CategoryBox />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            {/* TrendrBody */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders />
+                <TrendrBody />
+              </Paper>
+            </Grid>
+            {/* TwitterStream */}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <TwitterStream />
               </Paper>
             </Grid>
           </Grid>
