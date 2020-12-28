@@ -2,7 +2,7 @@ All components performing CRUD methods (get, post, put, delete)
 need to import axios as below:
 
 
-import axios from '../axios';
+import axios from '../../axios';
 
 
 The reason it's importing from a relative directory is because we're
