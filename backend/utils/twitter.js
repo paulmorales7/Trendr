@@ -5,7 +5,5 @@ var client = new Twitter({
   consumer_secret: process.env.TWITTER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN,
   access_token_secret: process.env.TWITTER_TOKEN_SECRET,
-
-  
 });
 module.exports = client;
