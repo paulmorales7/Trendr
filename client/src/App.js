@@ -15,6 +15,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 // import Chart from './dashboard/Chart';
+import CategoryButtons from './dashboard/CategoryButtons';
 import CategorySelected from './dashboard/CategorySelected';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
@@ -24,7 +25,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Trendr
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -155,11 +156,13 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+            {/* Recent CategoryButtons */}
+            <Grid item xs={12} md={12} lg={12}>
+              <CategoryButtons />
+            </Grid>
             {/* Recent CategorySelected */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <CategorySelected />
-              </Paper>
+              <CategorySelected />
             </Grid>
             {/* Recent TrendrBody */}
             <Grid item xs={12}>

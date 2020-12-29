@@ -16,16 +16,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits() {
+export default function CategorySelected() {
   const classes = useStyles();
   return (
     <React.Fragment>
       <Title>Selected Category</Title>
-      <Typography color="textSecondary" className={classes.categoryIcon}>
+      <Typography color="textPrimary">
         #live date#
       </Typography>      
-      <Typography  color="textSecondary">
-        times trending: #clickcount#
+      <Typography  color="textPrimary">
+        #live clickcount#
       </Typography>
       <div>
         <Link color="primary" href="## API URL LINK HERE ##" onClick={preventDefault}>

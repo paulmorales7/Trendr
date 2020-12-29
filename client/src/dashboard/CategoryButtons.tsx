@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CategorySelected() {
+export default function CategoryButtons() {
   const classes = useStyles();
   return (
     <React.Fragment>
