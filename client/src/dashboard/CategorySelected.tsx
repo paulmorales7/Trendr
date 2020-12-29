@@ -8,26 +8,28 @@ function preventDefault(event: React.MouseEvent) {
   event.preventDefault();
 }
 
+
+// we'll attempt to fix an image from the API call here
 const useStyles = makeStyles({
-  depositContext: {
+  categoryIcon: {
     flex: 1,
   },
 });
 
-export default function Deposits() {
+export default function CategorySelected() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
-      <Typography component="p" variant="h4">
-        $3,024.00
-      </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2019
+      <Title>Selected Category</Title>
+      <Typography color="textSecondary" className={classes.categoryIcon}>
+        #live date#
+      </Typography>      
+      <Typography  color="textSecondary">
+        times trending: #clickcount#
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+        <Link color="primary" href="## API URL LINK HERE ##" onClick={preventDefault}>
+          Go to source page
         </Link>
       </div>
     </React.Fragment>
