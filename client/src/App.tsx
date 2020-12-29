@@ -15,7 +15,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 // import Chart from './dashboard/Chart';
-import CategoryBox from './dashboard/CategoryBox';
+import CategorySelected from './dashboard/CategorySelected';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 
@@ -164,10 +164,10 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* CategoryBox */}
+            {/* CategorySelected */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <CategoryBox />
+                <CategorySelected />
               </Paper>
             </Grid>
             {/* TrendrBody */}

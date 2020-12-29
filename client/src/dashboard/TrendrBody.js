@@ -20,7 +20,7 @@ const rows = [
   ),
   createData(
     1,
-    // title (trend) -or- twitter stream (other components become null) 
+    // title (trend)
     "SPORT TRENDS"
   ),
   createData(
