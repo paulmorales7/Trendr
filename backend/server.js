@@ -1,7 +1,6 @@
 require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 // const connectDB = require('./config/db');
 const PORT = process.env.PORT || 3001;
 
