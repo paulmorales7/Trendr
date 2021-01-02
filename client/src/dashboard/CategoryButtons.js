@@ -9,34 +9,67 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-
-// we'll attempt to fix an image from the API call here
 const useStyles = makeStyles({
-  ButtonGroup: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  hroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #790909 30%, #ff4b22 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
   },
-  categoryIcon: {
-    flex: 1,
+  sroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #ff4b22 30%, #d6ce18 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+  mroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #d6ce18 30%, #32c613 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+  troot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #32c613 30%, #5d45ff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+  broot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #5d45ff 30%, #00cfff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+  eroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #00cfff 30%, #b545ff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+  },
+  allroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #b545ff 40%, #790909 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
   },
 });
+
 
 export default function CategoryButtons() {
   const classes = useStyles();
   return (
     <React.Fragment>
       <Title>Categories</Title>
-        <div id="flexcenter" style={{ marginLeft: '25%', marginRight: '25%' }}>
+        <div id="flexcenter" style={{ marginLeft: '15%', marginRight: '15%' }}>
         <Typography color="primary" className={classes.categoryIcon}>
-          <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-            <Button id="h" style={{ color:"red" }}>Top Trends</Button>
-            <Button id="s" style={{ color:"orange" }}>Sports</Button>
-            <Button id="m" style={{ color:"yellow" }}>Health</Button>
-            <Button id="t" style={{ color:"green" }}>Science/Tech</Button>
-            <Button id="b" style={{ color:"blue" }}>Business</Button>
-            <Button id="e" style={{ color:"violet" }}>Entertainment</Button>
-            <Button id="all" style={{ color:"white" }}>All</Button>
+          <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
+            <Button id="h" className={classes.hroot}>Top</Button>
+            <Button id="s" className={classes.sroot}>Sports</Button>
+            <Button id="m" className={classes.mroot}>Health</Button>
+            <Button id="t" className={classes.troot}>Technology</Button>
+            <Button id="b" className={classes.broot}>Business</Button>
+            <Button id="e" className={classes.eroot}>Entertainment</Button>
+            <Button id="all" className={classes.allroot}>All</Button>
           </ButtonGroup>
         </Typography>   
         </div>   
