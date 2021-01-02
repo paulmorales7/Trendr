@@ -3,9 +3,11 @@ import axios from 'axios';
 
 
 export default {
-//     getTwitterStream: function(queryTerm){
-//         return axios.get("/trends/" + queryTerm)
-// },
+    getTwitterStream: function(queryTerm){
+        return axios.get("/trends/" + queryTerm)
+},
+
+// Might not need the http://localhost:3001 in each of these endpoints... not really sure.
 
     getResultsALL: function(){
         return axios.get('http://localhost:3001/trends/all')
