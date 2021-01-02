@@ -27,8 +27,7 @@ export default function CategoryButtons() {
   return (
     <React.Fragment>
       <Title>Categories</Title>
-        {/* temporary fix to the alignment issue-- still attempting to center buttons, hence why i pref the navbar categories */}
-        <div id="flexcenter" style={{ marginLeft: '25%' }}>
+        <div id="flexcenter" style={{ marginLeft: '25%', marginRight: '25%' }}>
         <Typography color="primary" className={classes.categoryIcon}>
           <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
             <Button id="h" style={{ color:"red" }}>Top Trends</Button>
