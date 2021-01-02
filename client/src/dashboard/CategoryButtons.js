@@ -25,12 +25,13 @@ export default function CategoryButtons() {
 
       <Typography color="textSecondary" className={classes.categoryIcon}>
         <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-          <Button>One</Button>
-          <Button>Two</Button>
-          <Button>Three</Button>
-          <Button>Four</Button>
-          <Button>Five</Button>
-          <Button>Six</Button>
+          <Button>Top Stories</Button>
+          <Button>Sports</Button>
+          <Button>Health</Button>
+          <Button>Science/Tech</Button>
+          <Button>Business</Button>
+          <Button>Entertainment</Button>
+          <Button>All</Button>
         </ButtonGroup>
       </Typography>      
     </React.Fragment>
