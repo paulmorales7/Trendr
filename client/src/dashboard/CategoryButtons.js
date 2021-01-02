@@ -23,15 +23,14 @@ export default function CategoryButtons() {
     <React.Fragment>
       <Title>Categories</Title>
 
-      <Typography color="textSecondary" className={classes.categoryIcon}>
-        <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-          <Button>Top Stories</Button>
-          <Button>Sports</Button>
-          <Button>Health</Button>
-          <Button>Science/Tech</Button>
-          <Button>Business</Button>
-          <Button>Entertainment</Button>
-          <Button>All</Button>
+      <Typography color="primary" className={classes.categoryIcon}>
+        <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
+          <Button id="s">Sports</Button>
+          <Button id="m">Health</Button>
+          <Button id="t">Science/Tech</Button>
+          <Button id="b">Business</Button>
+          <Button id="e">Entertainment</Button>
+          <Button id="all">All</Button>
         </ButtonGroup>
       </Typography>      
     </React.Fragment>
