@@ -12,6 +12,11 @@ function preventDefault(event) {
 
 // we'll attempt to fix an image from the API call here
 const useStyles = makeStyles({
+  ButtonGroup: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   categoryIcon: {
     flex: 1,
   },
@@ -22,18 +27,20 @@ export default function CategoryButtons() {
   return (
     <React.Fragment>
       <Title>Categories</Title>
-
-      <Typography color="primary" className={classes.categoryIcon}>
-        <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-          <Button style={{ color:"red" }} id="h">Top Trends</Button>
-          <Button style={{ color:"orange" }} id="s">Sports</Button>
-          <Button style={{ color:"yellow" }} id="m">Health</Button>
-          <Button style={{ color:"green" }} id="t">Science/Tech</Button>
-          <Button style={{ color:"blue" }} id="b">Business</Button>
-          <Button style={{ color:"violet" }} id="e">Entertainment</Button>
-          <Button style={{ color:"white" }} id="all">All</Button>
-        </ButtonGroup>
-      </Typography>      
+        {/* temporary fix to the alignment issue-- still attempting to center buttons, hence why i pref the navbar categories */}
+        <div id="flexcenter" style={{ marginLeft: '25%' }}>
+        <Typography color="primary" className={classes.categoryIcon}>
+          <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
+            <Button id="h" style={{ color:"red" }}>Top Trends</Button>
+            <Button id="s" style={{ color:"orange" }}>Sports</Button>
+            <Button id="m" style={{ color:"yellow" }}>Health</Button>
+            <Button id="t" style={{ color:"green" }}>Science/Tech</Button>
+            <Button id="b" style={{ color:"blue" }}>Business</Button>
+            <Button id="e" style={{ color:"violet" }}>Entertainment</Button>
+            <Button id="all" style={{ color:"white" }}>All</Button>
+          </ButtonGroup>
+        </Typography>   
+        </div>   
     </React.Fragment>
   );
 }

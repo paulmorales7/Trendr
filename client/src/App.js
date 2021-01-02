@@ -7,19 +7,22 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 // import Chart from './dashboard/Chart';
 import CategoryButtons from './dashboard/CategoryButtons';
 import CategorySelected from './dashboard/CategorySelected';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
+
+function preventDefault(event) {
+  event.preventDefault();
+}
 
 function Copyright() {
   return (
@@ -146,11 +149,17 @@ export default function Dashboard() {
           >
             Trendr
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <Typography color="primary" className={classes.categoryIcon}>
+          <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
+            <Button id="h" style={{ color:"red" }}>Top Trends</Button>
+            <Button id="s" style={{ color:"orange" }}>Sports</Button>
+            <Button id="m" style={{ color:"yellow" }}>Health</Button>
+            <Button id="t" style={{ color:"green" }}>Science/Tech</Button>
+            <Button id="b" style={{ color:"blue" }}>Business</Button>
+            <Button id="e" style={{ color:"violet" }}>Entertainment</Button>
+            <Button id="all" style={{ color:"white" }}>All</Button>
+          </ButtonGroup>
+        </Typography>   
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
@@ -162,7 +171,7 @@ export default function Dashboard() {
               <CategoryButtons />
             </Grid>
             {/* Recent CategorySelected */}
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} md={12} lg={12}>
               <CategorySelected />
             </Grid>
             {/* Recent TrendrBody */}
