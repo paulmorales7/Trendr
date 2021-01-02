@@ -25,12 +25,13 @@ export default function CategoryButtons() {
 
       <Typography color="primary" className={classes.categoryIcon}>
         <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-          <Button id="s">Sports</Button>
-          <Button id="m">Health</Button>
-          <Button id="t">Science/Tech</Button>
-          <Button id="b">Business</Button>
-          <Button id="e">Entertainment</Button>
-          <Button id="all">All</Button>
+          <Button style={{ color:"red" }} id="h">Top Trends</Button>
+          <Button style={{ color:"orange" }} id="s">Sports</Button>
+          <Button style={{ color:"yellow" }} id="m">Health</Button>
+          <Button style={{ color:"green" }} id="t">Science/Tech</Button>
+          <Button style={{ color:"blue" }} id="b">Business</Button>
+          <Button style={{ color:"violet" }} id="e">Entertainment</Button>
+          <Button style={{ color:"white" }} id="all">All</Button>
         </ButtonGroup>
       </Typography>      
     </React.Fragment>
