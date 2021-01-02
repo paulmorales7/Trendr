@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var Twitter = require('twitter');
 // console.log(process.env)
 var client = new Twitter({
