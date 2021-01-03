@@ -25,7 +25,7 @@ router.route("/:trend").get(async (req, res) => {
           googleResults:
           {
             article: jsonRes.storySummaries.trendingStories[0].articles[0],
-            image: jsonRes.storySummaries.trendingStories[0].image
+            image: jsonRes.storySummaries.trendingStories[0].image.imgUrl
           }
         }
         res.json(results)
