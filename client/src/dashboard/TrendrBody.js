@@ -64,14 +64,14 @@ export default function TrendrBody(props) {
         </TableHead> */}
 
         <TableBody>
-          {Array.isArray(props.data) ? props.data.map((row) => (
-            <TableRow key={row.articleTitle}>
-              <TableCell>{row.articleTitle}</TableCell>
-              <TableCell>{row.image}</TableCell>
-              <TableCell>{row.snippet}</TableCell>
-              <TableCell>{row.url}</TableCell>
+          {props.data ? (
+            <TableRow key={props.data.article.articleTitle}>
+              <TableCell>{props.data.article.articleTitle}</TableCell>
+              {/* <TableCell>{row.image}</TableCell> */}
+              <TableCell>{props.data.article.snippet}</TableCell>
+              <TableCell><a href={props.data.article.url}>Click here for the article!</a></TableCell>
             </TableRow>
-          )): null }
+          ) : null}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>

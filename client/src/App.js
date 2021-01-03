@@ -193,7 +193,9 @@ export default function Dashboard() {
             {/* Recent TrendrBody */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <TrendrBody />
+                <TrendrBody
+                  data={sports.googleData}
+                />
               </Paper>
             </Grid>
             {/* TwitterStream */}
