@@ -20,6 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "config": "^3.3.3",
     "cors": "^2.8.5",
@@ -30,6 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.8",
     "nodemon": "^2.0.6",
+    "react-twitter-embed": "^3.0.3",
     "twitter": "^1.7.1"
   }
 }

@@ -7,6 +7,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 // This is a placeholder for API data to fill into the segments of the component
 
@@ -42,17 +43,20 @@ export default function TwitterStream() {
   React.useEffect(() => {API.getTwitterStream("s").then((res) => {/*setTweets*/console.log(res/*.data.status*/)})})
   return (
     <React.Fragment>
-      <Title>Trendr Feed</Title>
+      <Title>Tweets</Title>
 
       <Table size="small">
         <TableBody>
+        <TwitterTweetEmbed
+  tweetId={'933354946111705097'}
+/>
 
-          {/* twitter API summoning here */}
+          twitter API summoning here */}
           {/* <div className="centerContent">
             <div className="selfCenter">
               <TwitterTweetEmbed tweetId="1083592734038929408" placeholder="Loading" />
             </div>
-          </div> */}  
+          </div>  
 
           {/* res.data.statuses  id_str = tweet id for API call */}
 
