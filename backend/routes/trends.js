@@ -9,16 +9,23 @@ router.route("/:trend").get(async (req, res) => {
     var jsonRes = JSON.parse(results);
 
     console.log(
-      jsonRes.storySummaries.trendingStories[0].articles[0].url
+      jsonRes.storySummaries.trendingStories[0].articles[0]
     );
     const trendTopic =
-      jsonRes.storySummaries.trendingStories[0].articles[0].url
+      jsonRes.storySummaries.trendingStories[0].articles[0].articleTitle
+    console.log(trendTopic)
     client.get(
       "search/tweets",
       { q: trendTopic },
       function (error, tweets, response) {
+        console.log("****")
         console.log(tweets)
-        res.json(tweets)
+        const results = {
+          ...tweets,
+          googleResults:
+            jsonRes.storySummaries.trendingStories[0].articles[0]
+        }
+        res.json(results)
       }
     );
   } catch (err) {

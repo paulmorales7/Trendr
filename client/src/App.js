@@ -19,6 +19,7 @@ import CategoryButtons from './dashboard/CategoryButtons';
 import CategorySelected from './dashboard/CategorySelected';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
+import API from './utils/API';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -118,10 +119,23 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [sports, setSports] = React.useState({});
   const toggleDrawer = () => {
     setOpen(!open);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const getData = () => {
+    API.getResultsSPORTS()
+      .then(res => {
+        const sportsData = {
+          ...sports,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        setSports(sportsData)
+      })
+  }
 
   return (
     <div className={classes.root}>
@@ -150,16 +164,16 @@ export default function Dashboard() {
             Trendr
           </Typography>
           <Typography color="primary" className={classes.categoryIcon}>
-          <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-            <Button id="h" style={{ color:"red" }}>Top Trends</Button>
-            <Button id="s" style={{ color:"orange" }}>Sports</Button>
-            <Button id="m" style={{ color:"yellow" }}>Health</Button>
-            <Button id="t" style={{ color:"green" }}>Science/Tech</Button>
-            <Button id="b" style={{ color:"blue" }}>Business</Button>
-            <Button id="e" style={{ color:"violet" }}>Entertainment</Button>
-            <Button id="all" style={{ color:"white" }}>All</Button>
-          </ButtonGroup>
-        </Typography>   
+            <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
+              <Button id="h" style={{ color: "red" }}>Top Trends</Button>
+              <Button id="s" style={{ color: "orange" }}>Sports</Button>
+              <Button id="m" style={{ color: "yellow" }}>Health</Button>
+              <Button id="t" style={{ color: "green" }}>Science/Tech</Button>
+              <Button id="b" style={{ color: "blue" }}>Business</Button>
+              <Button id="e" style={{ color: "violet" }}>Entertainment</Button>
+              <Button id="all" style={{ color: "white" }}>All</Button>
+            </ButtonGroup>
+          </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
@@ -168,7 +182,9 @@ export default function Dashboard() {
           <Grid container spacing={3}>
             {/* Recent CategoryButtons */}
             <Grid item xs={12} md={12} lg={12}>
-              <CategoryButtons />
+              <CategoryButtons
+                getData={getData}
+              />
             </Grid>
             {/* Recent CategorySelected */}
             <Grid item xs={12} md={12} lg={12}>

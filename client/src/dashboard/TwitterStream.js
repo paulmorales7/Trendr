@@ -40,18 +40,18 @@ const useStyles = makeStyles((theme) => ({
 export default function TwitterStream() {
   const classes = useStyles();
   const [tweets, setTweets] = useState([]);
-  React.useEffect(() => {API.getTwitterStream("s").then((res) => {/*setTweets*/console.log(res/*.data.status*/)})})
+  React.useEffect(() => { API.getTwitterStream("s").then((res) => {/*setTweets*/console.log(res/*.data.status*/) }) })
   return (
     <React.Fragment>
       <Title>Tweets</Title>
 
       <Table size="small">
         <TableBody>
-        <TwitterTweetEmbed
-  tweetId={'933354946111705097'}
-/>
+          <TwitterTweetEmbed
+            tweetId={'933354946111705097'}
+          />
 
-          twitter API summoning here */}
+          {/* twitter API summoning here */}
           {/* <div className="centerContent">
             <div className="selfCenter">
               <TwitterTweetEmbed tweetId="1083592734038929408" placeholder="Loading" />
@@ -67,12 +67,13 @@ export default function TwitterStream() {
           ))}
         </TableBody>
       </Table>
-      
+
       <div className={classes.seeMore}>
         <Link color="primary" href="## API URL HERE ##" onClick={preventDefault}>
           Go to source page
         </Link>
       </div>
     </React.Fragment>
-  );
-}
+  )
+};
+

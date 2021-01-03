@@ -9,7 +9,7 @@ import Title from './Title';
 
 // This is a placeholder for API data to fill into the segments of the component
 
-function createData( id, title, image, mainContent, trendURL) {
+function createData(id, title, image, mainContent, trendURL) {
   return { id, title, image, mainContent, trendURL };
 }
 
@@ -24,7 +24,7 @@ const rows = [
     "SPORT TRENDS"
   ),
   createData(
-    2, 
+    2,
     // image
     "<HELLO I AM AN IMAGE>"
   ),
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TrendrBody() {
+export default function TrendrBody(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -64,14 +64,14 @@ export default function TrendrBody() {
         </TableHead> */}
 
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.title}</TableCell>
+          {Array.isArray(props.data) ? props.data.map((row) => (
+            <TableRow key={row.articleTitle}>
+              <TableCell>{row.articleTitle}</TableCell>
               <TableCell>{row.image}</TableCell>
-              <TableCell>{row.mainContent}</TableCell>
-              <TableCell>{row.trendURL}</TableCell>
+              <TableCell>{row.snippet}</TableCell>
+              <TableCell>{row.url}</TableCell>
             </TableRow>
-          ))}
+          )): null }
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
