@@ -120,6 +120,7 @@ export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [sports, setSports] = React.useState({});
+  const [top, setTop] = React.useState({});
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -134,6 +135,18 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         setSports(sportsData)
+      })
+  }
+
+  const getTopData = () => {
+    API.getResultsTOP()
+      .then(res => {
+        const topData = {
+          ...top,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        setTop(topData)
       })
   }
 
@@ -184,6 +197,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
                 getData={getData}
+                getTopData={getTopData}
               />
             </Grid>
             {/* Recent CategorySelected */}

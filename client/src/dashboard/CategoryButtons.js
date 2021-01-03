@@ -64,7 +64,7 @@ export default function CategoryButtons(props) {
       <div id="flexcenter" style={{ marginLeft: '15%', marginRight: '15%' }}>
         <Typography color="primary" className={classes.categoryIcon}>
           <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-            <Button id="h" className={classes.hroot}>Top</Button>
+            <Button id="h" onClick={props.getTopData} className={classes.hroot}>Top</Button>
             <Button id="s" onClick={props.getData} className={classes.sroot}>Sports</Button>
             <Button id="m" className={classes.mroot}>Health</Button>
             <Button id="t" className={classes.troot}>Technology</Button>
