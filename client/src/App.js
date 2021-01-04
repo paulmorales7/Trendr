@@ -176,7 +176,8 @@ export default function Dashboard() {
           >
             Trendr
           </Typography>
-          <Typography color="primary" className={classes.categoryIcon}>
+          {/* login button below? maybe his/herstory? */}
+          {/* <Typography color="primary" className={classes.categoryIcon}>
             <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
               <Button id="h" style={{ color: "red" }}>Top Trends</Button>
               <Button id="s" style={{ color: "orange" }}>Sports</Button>
@@ -186,7 +187,7 @@ export default function Dashboard() {
               <Button id="e" style={{ color: "violet" }}>Entertainment</Button>
               <Button id="all" style={{ color: "white" }}>All</Button>
             </ButtonGroup>
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
