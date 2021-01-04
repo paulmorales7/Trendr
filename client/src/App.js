@@ -21,6 +21,11 @@ import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
 
+// Login Stuff//////////////////////////////////
+import Login from './dashboard/Login/Login';
+import { useStateValue } from './StateProvider';
+////////////////////////////////////////////////
+
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -117,6 +122,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
+  //Login Stuff////////////////////////////////
+  const [{ user }, dispatch] = useStateValue();
+  /////////////////////////////////////////////
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [sports, setSports] = React.useState({});
@@ -151,6 +160,9 @@ export default function Dashboard() {
   }
 
   return (
+    <div id="App">
+    {
+      user ? (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -225,6 +237,9 @@ export default function Dashboard() {
           </Box>
         </Container>
       </main>
+    </div>
+    ) : ( <Login />)
+    }
     </div>
   );
 }
