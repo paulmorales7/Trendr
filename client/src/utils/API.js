@@ -7,28 +7,28 @@ export default {
         return axios.get("/trends/" + queryTerm)
 },
 
-// Might not need the http://localhost:3001 in each of these endpoints... not really sure.
+
 
     getResultsALL: function(){
-        return axios.get('http://localhost:3001/trends/all')
+        return axios.get('/trends/all')
     },
     getResultsENTERTAINMENT: function(){
-        return axios.get('http://localhost:3001/trends/e')
+        return axios.get('/trends/e')
     },
     getResultsBUSINESS: function(){
-        return axios.get('http://localhost:3001/trends/b')
+        return axios.get('/trends/b')
     },
     getResultsTECH: function(){
-        return axios.get('http://localhost:3001/trends/t')
+        return axios.get('/trends/t')
     },
     getResultsHEALTH: function(){
-        return axios.get('http://localhost:3001/trends/m')
+        return axios.get('/trends/m')
     },
     getResultsSPORTS: function(){
-        return axios.get('http://localhost:3001/trends/s')
+        return axios.get('/trends/s')
     },
     getResultsTOP: function(){
-        return axios.get('http://localhost:3001/trends/h')
+        return axios.get('/trends/h')
     }
 };
 

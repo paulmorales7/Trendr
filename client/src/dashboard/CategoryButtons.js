@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Title from './Title';
 
+
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -55,24 +56,24 @@ const useStyles = makeStyles({
 });
 
 
-export default function CategoryButtons() {
+export default function CategoryButtons(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
       <Title>Categories</Title>
-        <div id="flexcenter" style={{ marginLeft: '15%', marginRight: '15%' }}>
+      <div id="flexcenter" style={{ marginLeft: '15%', marginRight: '15%' }}>
         <Typography color="primary" className={classes.categoryIcon}>
           <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-            <Button id="h" className={classes.hroot}>Top</Button>
-            <Button id="s" className={classes.sroot}>Sports</Button>
+            <Button id="h" onClick={props.getTopData} className={classes.hroot}>Top</Button>
+            <Button id="s" onClick={props.getData} className={classes.sroot}>Sports</Button>
             <Button id="m" className={classes.mroot}>Health</Button>
             <Button id="t" className={classes.troot}>Technology</Button>
             <Button id="b" className={classes.broot}>Business</Button>
             <Button id="e" className={classes.eroot}>Entertainment</Button>
             <Button id="all" className={classes.allroot}>All</Button>
           </ButtonGroup>
-        </Typography>   
-        </div>   
+        </Typography>
+      </div>
     </React.Fragment>
   );
 }
