@@ -129,7 +129,7 @@ export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [sports, setSports] = React.useState({});
-  const [top, setTop] = React.useState({});
+  const [business, setBusiness] = React.useState({});
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -147,15 +147,15 @@ export default function Dashboard() {
       })
   }
 
-  const getTopData = () => {
-    API.getResultsTOP()
+  const getBusinessData = () => {
+    API.getResultsBUSINESS()
       .then(res => {
-        const topData = {
-          ...top,
+        const businessData = {
+          ...business,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
-        setTop(topData)
+        setBusiness(businessData)
       })
   }
 
@@ -210,7 +210,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
                 getData={getData}
-                getTopData={getTopData}
+                getBusinessData={getBusinessData}
               />
             </Grid>
             {/* Recent CategorySelected */}

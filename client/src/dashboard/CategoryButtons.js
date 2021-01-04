@@ -68,7 +68,7 @@ export default function CategoryButtons(props) {
             <Button id="s" onClick={props.getData} className={classes.sroot}>Sports</Button>
             <Button id="m" className={classes.mroot}>Health</Button>
             <Button id="t" className={classes.troot}>Technology</Button>
-            <Button id="b" className={classes.broot}>Business</Button>
+            <Button id="b" onClick={props.getBusinessData} className={classes.broot}>Business</Button>
             <Button id="e" className={classes.eroot}>Entertainment</Button>
             <Button id="all" className={classes.allroot}>All</Button>
           </ButtonGroup>

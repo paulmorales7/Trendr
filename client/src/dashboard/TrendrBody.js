@@ -67,7 +67,7 @@ export default function TrendrBody(props) {
           {props.data ? (
             <TableRow key={props.data.article.articleTitle}>
               <TableCell>{props.data.article.articleTitle}</TableCell>
-              {/* <TableCell>{row.image}</TableCell> */}
+              <TableCell><img src={props.data.image}></img></TableCell>
               <TableCell>{props.data.article.snippet}</TableCell>
               <TableCell><a href={props.data.article.url}>Click here for the article!</a></TableCell>
             </TableRow>
