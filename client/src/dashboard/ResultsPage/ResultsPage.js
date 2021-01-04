@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
-import './ResultsPage.css';
+// EXAMPLE COMPONENT
 
-import API from '../utils/API';
+// import React, { Component } from 'react';
+// import './ResultsPage.css';
 
-class Feed extends Component {
-  state = {
-    tweet: '',
-  };
+// import API from '../utils/API';
 
-  componentDidMount() {
-    this.populateFeed();
-  }
+// class Feed extends Component {
+//   state = {
+//     tweet: '',
+//   };
 
-  populateFeed = () => {
-    API.getResultsBUSINESS()
-      .then((res) =>
-        this.setState({
-          tweet: res.data,
-        })
-      )
-      .catch((err) => console.log(err));
-  };
+//   componentDidMount() {
+//     this.populateFeed();
+//   }
 
-  render() {
-    return (
-      <div>
-        <h1 className='text-center'>Your Tweet Results: {this.state.tweet}</h1>
-      </div>
-    );
-  }
-}
+//   populateFeed = () => {
+//     API.getResultsBUSINESS()
+//       .then((res) =>
+//         this.setState({
+//           tweet: res.data,
+//         })
+//       )
+//       .catch((err) => console.log(err));
+//   };
 
-export default Feed;
+//   render() {
+//     return (
+//       <div>
+//         <h1 className='text-center'>Your Tweet Results: {this.state.tweet}</h1>
+//       </div>
+//     );
+//   }
+// }
+
+// export default Feed;
