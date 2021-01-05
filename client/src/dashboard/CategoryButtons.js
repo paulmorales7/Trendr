@@ -12,45 +12,50 @@ function preventDefault(event) {
 
 
 const useStyles = makeStyles({
+  centeredDiv: {
+    margin: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   hroot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #790909 30%, #ff4b22 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   sroot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #ff4b22 30%, #d6ce18 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   mroot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #d6ce18 30%, #32c613 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   troot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #32c613 30%, #5d45ff 90%)',
+    background: 'linear-gradient(45deg, #32c613 30%, #00cfff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   broot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #5d45ff 30%, #00cfff 90%)',
+    background: 'linear-gradient(45deg, #00cfff 30%, #5d45ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   eroot: {
-    marginRight: '6%',
+    // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #00cfff 30%, #b545ff 90%)',
+    background: 'linear-gradient(45deg, #5d45ff 30%, #b545ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
@@ -66,9 +71,9 @@ const useStyles = makeStyles({
 export default function CategoryButtons(props) {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <React.Fragment className={classes.centeredDiv}>
       <Title>Categories</Title>
-      <div style={{ marginLeft: '5%', marginRight: '5%' }}>
+      <div>
         <Typography variant="button" color="primary" className={classes.categoryIcon}>
           <Toolbar variant="spaced" color="primary" aria-label="contained primary button group" onClick={preventDefault}>
             <Button id="h" size='large' onClick={props.getTopData} className={classes.hroot}><span className={classes.buttonText}>Top</span></Button>
