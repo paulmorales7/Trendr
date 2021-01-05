@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
       }
 }));
 
-
 const Login = () => {
     const classes = useStyles();
     const [state, dispatch] = useStateValue()
@@ -42,6 +41,7 @@ const Login = () => {
                 </div>
                 <Button type='submit' onClick={signIn}>Sign In</Button>
             </Paper>
+
         </div>
     )
 }
