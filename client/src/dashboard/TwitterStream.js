@@ -48,22 +48,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TwitterStream() {
+export default function TwitterStream(props) {
   const classes = useStyles();
   const [tweets, setTweets] = useState([]);
-  React.useEffect(() => {
-    API.getTwitterStream('s').then((res) => {
-      setTweets(res.data.statuses[0].id_str);
-    });
-  }, [tweets]);
-  console.log('This is tweets', typeof(tweets))
+  // React.useEffect(() => {
+  //   var interval = setInterval(() => API.getTwitterStream('s').then((res) => {
+  //     setTweets(res.data.statuses);
+  //   }), 10000)
+  // }, []);
+  console.log('This is tweets', tweets, typeof(tweets))
+  console.log('This is tweets', props.tweets, typeof(props.tweets))
   return (
     <React.Fragment>
       <Title>Tweets</Title>
 
       <Table size='small'>
         <TableBody>
-          <TwitterTweetEmbed tweetId={tweets} />
+          {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)}
 
           {/* twitter API summoning here */}
           {/* <div className="centerContent">

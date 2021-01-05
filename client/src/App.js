@@ -127,6 +127,7 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
+  const [Category, setCategory] = React.useState(null); 
   const [open, setOpen] = React.useState(true);
   const [sports, setSports] = React.useState({});
   const [business, setBusiness] = React.useState({});
@@ -144,6 +145,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         setSports(sportsData)
+        setCategory("s")
       })
   }
 
@@ -156,6 +158,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         setBusiness(businessData)
+        setCategory("b")
       })
   }
 
@@ -228,7 +231,7 @@ export default function Dashboard() {
             {/* TwitterStream */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <TwitterStream />
+                <TwitterStream tweets={Category === 's' ? sports.twitterData : Category === 'b' ? business.twitterData : []} />
               </Paper>
             </Grid>
           </Grid>
