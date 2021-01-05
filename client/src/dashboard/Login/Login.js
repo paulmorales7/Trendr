@@ -4,6 +4,7 @@ import './Login.css'
 import { auth, provider } from '../firebase'
 import { useStateValue } from '../../StateProvider'
 import { actionTypes } from '../../Reducer'
+import trendrLogo from "./trendrLogo.png"
 
 const Login = () => {
     const [state, dispatch] = useStateValue()
@@ -23,7 +24,7 @@ const Login = () => {
     return (
         <div className='login' >
             <div className="login__logo">
-                <img src="./trendrLogo.png" alt="trendr-logo" />
+                <img src={trendrLogo} alt="trendr-logo" />
             </div>
             <Button type='submit' onClick={signIn}>Sign In</Button>
         </div>
