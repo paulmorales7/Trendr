@@ -23,7 +23,7 @@ const Login = () => {
     return (
         <div className='login' >
             <div className="login__logo">
-                <img src="" alt="trendr-logo" />
+                <img src="./trendrLogo.png" alt="trendr-logo" />
             </div>
             <Button type='submit' onClick={signIn}>Sign In</Button>
         </div>
