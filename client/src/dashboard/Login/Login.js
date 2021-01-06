@@ -39,7 +39,7 @@ const Login = () => {
                 <div className="login__logo">
                     <img src={trendrLogo} alt="trendr-logo" />
                 </div>
-                <Button type='submit' onClick={signIn}>Sign In</Button>
+                <Button type='submit' variant="outlined" color="primary" onClick={signIn}>Sign In</Button>
             </Paper>
 
         </div>

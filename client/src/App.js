@@ -14,6 +14,7 @@ import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
+import TrendrLogo from './trendrLogo.png'
 import './App.css'
 
 
@@ -28,7 +29,7 @@ function preventDefault(event) {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://github.com/paulmorales7/Trendr">
         Trendr
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
-    background: '#00cfff',
+    background: '#FFFEF2',
   },
   menuButton: {
     marginRight: 36,
@@ -80,6 +81,9 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  logo: {
+    maxHeight: '75px'
+  }
 }));
 
 export default function Dashboard() {
@@ -131,21 +135,22 @@ export default function Dashboard() {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-            Trendr
+          <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Recent CategoryButtons */}
+            
+            {/* CategoryButtons */}
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
                 getData={getData}
                 getBusinessData={getBusinessData}
               />
             </Grid>
-            {/* Recent TrendrBody */}
+            {/* TrendrBody */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <TrendrBody
@@ -168,6 +173,7 @@ export default function Dashboard() {
                 : []} />
               </Paper>
             </Grid>
+
           </Grid>
           <Box sx={{ pt: 4 }}>
             <Copyright />
