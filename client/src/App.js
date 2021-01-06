@@ -148,6 +148,18 @@ export default function Dashboard() {
         
       })
   }
+  const getTechData = () => {
+    API.getResultsTECH()
+      .then(res => {
+        const TechData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(TechData)
+        
+      })
+  }
 
   return (
     <div id="App">
@@ -175,6 +187,7 @@ export default function Dashboard() {
                 getBusinessData={getBusinessData}
                 getTopData={getTopData}
                 getHealthData={getHealthData}
+                getTechData={getTechData}
               />
             </Grid>
             {/* TrendrBody */}
