@@ -123,6 +123,7 @@ export default function Dashboard() {
         
       })
   }
+  
   const getTopData = () => {
     API.getResultsTOP()
       .then(res => {
@@ -132,6 +133,18 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(TopData)
+        
+      })
+  }
+  const getHealthData = () => {
+    API.getResultsHEALTH()
+      .then(res => {
+        const HealthData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(HealthData)
         
       })
   }
@@ -161,6 +174,7 @@ export default function Dashboard() {
                 getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
                 getTopData={getTopData}
+                getHealthData={getHealthData}
               />
             </Grid>
             {/* TrendrBody */}
