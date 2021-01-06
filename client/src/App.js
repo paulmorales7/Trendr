@@ -172,6 +172,18 @@ export default function Dashboard() {
         
       })
   }
+  const getAllData = () => {
+    API.getResultsALL()
+      .then(res => {
+        const AllData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(AllData)
+        
+      })
+  }
 
   return (
     <div id="App">
@@ -201,6 +213,7 @@ export default function Dashboard() {
                 getHealthData={getHealthData}
                 getTechData={getTechData}
                 getEntertainmentData={getEntertainmentData}
+                getAllData={getAllData}
               />
             </Grid>
             {/* TrendrBody */}
