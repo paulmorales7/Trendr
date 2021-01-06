@@ -82,13 +82,13 @@ export default function CategoryButtons(props) {
         <img src={trendrLogo} alt="trendr-logo" className={classes.logo} />
       </Toolbar>
       <Toolbar className={classes.toolbar} color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-        <Button id="h" size='large' onClick={() => props.getTrendData("h")} className={classes.hroot}><span className={classes.buttonText}>Top</span></Button>
+        <Button id="h" size='large' onClick={props.getTopData} className={classes.hroot}><span className={classes.buttonText}>Top</span></Button>
         <Button id="s" size='large' onClick={props.getSportsData} className={classes.sroot}><span className={classes.buttonText}>Sports</span></Button>
-        <Button id="m" size='large' className={classes.mroot}><span className={classes.buttonText}>Health</span></Button>
-        <Button id="t" size='large' className={classes.troot}><span className={classes.buttonText}>Tech</span></Button>
+        <Button id="m" size='large' onClick={props.getHealthData} className={classes.mroot}><span className={classes.buttonText}>Health</span></Button>
+        <Button id="t" size='large' onClick={props.getTechData} className={classes.troot}><span className={classes.buttonText}>Tech</span></Button>
         <Button id="b" size='large' onClick={props.getBusinessData} className={classes.broot}><span className={classes.buttonText}>Biz</span></Button>
-        <Button id="e" size='large' className={classes.eroot}><span className={classes.buttonText}>Entmt</span></Button>
-        <Button id="all" size='large' className={classes.allroot}><span className={classes.buttonText}>All</span></Button>
+        <Button id="e" size='large' onClick={props.getEntmtData} ><span className={classes.buttonText}>Entmt</span></Button>
+        <Button id="all" size='large' onClick={props.getAllData} className={classes.allroot}><span className={classes.buttonText}>All</span></Button>
       </Toolbar>
     </React.Fragment>
   );

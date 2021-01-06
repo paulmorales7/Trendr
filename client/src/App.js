@@ -123,6 +123,18 @@ export default function Dashboard() {
         
       })
   }
+  const getTopData = () => {
+    API.getResultsTOP()
+      .then(res => {
+        const TopData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(TopData)
+        
+      })
+  }
 
   return (
     <div id="App">
@@ -148,6 +160,7 @@ export default function Dashboard() {
               <CategoryButtons
                 getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
+                getTopData={getTopData}
               />
             </Grid>
             {/* TrendrBody */}
