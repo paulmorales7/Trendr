@@ -14,25 +14,25 @@ function createData(id, title, image, mainContent, trendURL) {
 }
 
 const rows = [
-  createData(
-    0
-    // id
-  ),
-  createData(
-    1,
-    // title (trend)
-    'SPORT TRENDS'
-  ),
-  createData(
-    2,
-    // image
-    '<HELLO I AM AN IMAGE>'
-  ),
-  createData(
-    3,
-    // main content
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  ),
+  // createData(
+  //   0
+  //   // id
+  // ),
+  // createData(
+  //   1,
+  //   // title (trend)
+  //   'SPORT TRENDS'
+  // ),
+  // createData(
+  //   2,
+  //   // image
+  //   '<HELLO I AM AN IMAGE>'
+  // ),
+  // createData(
+  //   3,
+  //   // main content
+  //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  // ),
 ];
 
 function preventDefault(event) {
@@ -50,7 +50,7 @@ export default function TrendrBody(props) {
   return (
     <React.Fragment>
       <Title>Trendr Icon</Title>
-      <Table size='small'>
+      <Table>
         {/* this creates vertical columns, when we want horizontal rows */}
         {/* <TableHead>
           <TableRow>
@@ -78,7 +78,7 @@ export default function TrendrBody(props) {
           ) : null}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
+      {/* <div className={classes.seeMore}>
         <Link
           color='primary'
           href='## API URL HERE ##'
@@ -86,7 +86,7 @@ export default function TrendrBody(props) {
         >
           Go to source page
         </Link>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

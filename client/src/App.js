@@ -115,6 +115,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    background: '#00cfff',
   },
   fixedHeight: {
     height: 240,

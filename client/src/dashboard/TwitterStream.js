@@ -61,8 +61,7 @@ export default function TwitterStream(props) {
   return (
     <React.Fragment>
       <Title>Tweets</Title>
-
-      <Table size='small'>
+      <Table>
         <TableBody>
           {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)}
 
@@ -83,7 +82,7 @@ export default function TwitterStream(props) {
         </TableBody>
       </Table>
 
-      <div className={classes.seeMore}>
+      {/* <div className={classes.seeMore}>
         <Link
           color='primary'
           href='## API URL HERE ##'
@@ -91,7 +90,7 @@ export default function TwitterStream(props) {
         >
           Go to source page
         </Link>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

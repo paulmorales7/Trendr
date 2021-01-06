@@ -19,48 +19,48 @@ const useStyles = makeStyles({
   hroot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #790909 30%, #ff4b22 90%)',
+    background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   sroot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #ff4b22 30%, #d6ce18 90%)',
+    background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   mroot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #d6ce18 30%, #32c613 90%)',
+    background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   troot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #32c613 30%, #00cfff 90%)',
+    background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   broot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #00cfff 30%, #5d45ff 90%)',
+    background: 'linear-gradient(45deg, #00cfff 65%, #5d45ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   eroot: {
     // marginRight: '6%',
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #5d45ff 30%, #b545ff 90%)',
+    background: 'linear-gradient(45deg, #5d45ff 65%, #b545ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   allroot: {
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #b545ff 40%, #790909 90%)',
+    background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
