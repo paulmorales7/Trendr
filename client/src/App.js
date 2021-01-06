@@ -141,7 +141,7 @@ export default function Dashboard() {
         const sportsData = {
           ...sports,
           googleData: res.data.googleResults,
-          twitterData: res.data.statuses
+          twitterData:res.data.tweetsResults
         }
         setSports(sportsData)
       })

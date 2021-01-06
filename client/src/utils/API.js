@@ -29,6 +29,7 @@ export default {
     },
     getResultsTOP: function(){
         return axios.get('/trends/h')
-    }
+    },
+
 };
 

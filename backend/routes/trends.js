@@ -19,7 +19,7 @@ router.route("/:trend").get(async (req, res) => {
       { q: trendTopic },
       function (error, tweets, response) {
         console.log("****")
-        console.log(tweets)
+        console.log(tweets.statuses[0].id_str)
         const results = {
           ...tweets,
           googleResults:

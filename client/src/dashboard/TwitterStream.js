@@ -48,7 +48,7 @@ export default function TwitterStream() {
       <Table size="small">
         <TableBody>
           <TwitterTweetEmbed
-            tweetId={'933354946111705097'}
+            tweetId={''}
           />
 
           {/* twitter API summoning here */}
