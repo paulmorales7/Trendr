@@ -8,50 +8,50 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-
-const useStyles = makeStyles({
-  centeredDiv: {
-    margin: 'auto',
-    alignItems: 'center',
-    justifyContent: 'center'
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 60,
   },
   hroot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   sroot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   mroot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   troot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   broot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #00cfff 65%, #5d45ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white'
   },
   eroot: {
-    // marginRight: '6%',
     fontWeight: 'bold',
     background: 'linear-gradient(45deg, #5d45ff 65%, #b545ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     padding: '1rem 3rem',
   }
-});
+}));
 
 
 export default function CategoryButtons(props) {
