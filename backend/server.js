@@ -22,9 +22,9 @@ const postRoutes = require('./routes/post');
 
 
 // app.use('/users', usersRouter);
-app.use('/', postRoutes);
-app.use('/trends', trendsRouter);
 
+app.use('/trends', trendsRouter);
+app.use('/', postRoutes);
 
 // Start the API server
 app.listen(PORT, function() {

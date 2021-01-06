@@ -92,22 +92,22 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
-  const [Category, setCategory] = React.useState(null); 
+  
   const [open, setOpen] = React.useState(true);
-  const [sports, setSports] = React.useState({});
-  const [business, setBusiness] = React.useState({});
+  const [trendrData, settrendrData] = React.useState({});
+  // const [business, setBusiness] = React.useState({});
 
   
-  const getData = () => {
+  const getSportsData = () => {
     API.getResultsSPORTS()
       .then(res => {
         const sportsData = {
-          ...sports,
+          ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
-        setSports(sportsData)
-        setCategory("s")
+        settrendrData(sportsData)
+        
       })
   }
 
@@ -115,12 +115,12 @@ export default function Dashboard() {
     API.getResultsBUSINESS()
       .then(res => {
         const businessData = {
-          ...business,
+          ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
-        setBusiness(businessData)
-        setCategory("b")
+        settrendrData(businessData)
+        
       })
   }
 
@@ -146,7 +146,7 @@ export default function Dashboard() {
             {/* CategoryButtons */}
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
-                getData={getData}
+                getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
               />
             </Grid>
@@ -154,23 +154,19 @@ export default function Dashboard() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <TrendrBody
-                  data={sports.googleData}
+                  data={trendrData.googleData}
                 />
               </Paper>
             </Grid>
             {/* TwitterStream */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
+              {Object.keys(trendrData).length > 0 && 
               <TwitterStream 
                 tweets={
-                  Category === 's' ? sports.twitterData 
-                : Category === 'b' ? business.twitterData 
-                // : Category === 'h' ? top.twitterData 
-                // : Category === 'm' ? health.twitterData 
-                // : Category === 't' ? tech.twitterData 
-                // : Category === 'e' ? entertainment.twitterData 
-                // : Category === 'all' ? all.twitterData 
-                : []} />
+                  trendrData.twitterData
+                
+                } />}
               </Paper>
             </Grid>
 
