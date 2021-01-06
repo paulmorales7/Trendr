@@ -87,7 +87,7 @@ export default function CategoryButtons(props) {
         <Button id="m" size='large' onClick={props.getHealthData} className={classes.mroot}><span className={classes.buttonText}>Health</span></Button>
         <Button id="t" size='large' onClick={props.getTechData} className={classes.troot}><span className={classes.buttonText}>Tech</span></Button>
         <Button id="b" size='large' onClick={props.getBusinessData} className={classes.broot}><span className={classes.buttonText}>Biz</span></Button>
-        <Button id="e" size='large' onClick={props.getEntmtData} className={classes.eroot}><span className={classes.buttonText}>Entmt</span></Button>
+        <Button id="e" size='large' onClick={props.getEntertainmentData} className={classes.eroot}><span className={classes.buttonText}>Entmt</span></Button>
         <Button id="all" size='large' onClick={props.getAllData} className={classes.allroot}><span className={classes.buttonText}>All</span></Button>
       </Toolbar>
     </React.Fragment>
