@@ -160,6 +160,18 @@ export default function Dashboard() {
         
       })
   }
+  const getEntertainmentData = () => {
+    API.getResultsENTERTAINMENT()
+      .then(res => {
+        const EntertainmentData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(EntertainmentData)
+        
+      })
+  }
 
   return (
     <div id="App">
@@ -188,6 +200,7 @@ export default function Dashboard() {
                 getTopData={getTopData}
                 getHealthData={getHealthData}
                 getTechData={getTechData}
+                getEntertainmentData={getEntertainmentData}
               />
             </Grid>
             {/* TrendrBody */}
