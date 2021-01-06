@@ -16,6 +16,8 @@ import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
+import trendrLogo from './trendrLogo.png'
+
 // Login Stuff//////////////////////////////////
 import Login from './dashboard/Login/Login';
 import { useStateValue } from './StateProvider';
@@ -44,22 +46,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  logo: {
+    maxHeight: '75px',
+  },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
   },
   menuButton: {
     marginRight: 36,
@@ -69,27 +60,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-  },
-  drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    boxSizing: 'border-box',
-  },
-  drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing(7),
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
-    },
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
@@ -127,11 +97,8 @@ export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
   const [sports, setSports] = React.useState({});
   const [business, setBusiness] = React.useState({});
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  
   const getData = () => {
     API.getResultsSPORTS()
       .then(res => {
@@ -169,24 +136,7 @@ export default function Dashboard() {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            Trendr
-          </Typography>
+          <img src={trendrLogo} alt="trendr-logo" className={classes.logo} />
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
