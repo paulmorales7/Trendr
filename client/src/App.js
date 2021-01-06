@@ -14,6 +14,8 @@ import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
+import './App.css'
+
 
 // Login Stuff//////////////////////////////////
 import Login from './dashboard/Login/Login';
@@ -28,7 +30,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/paulmorales7/Trendr">
         Trendr
       </Link>{' '}
       {new Date().getFullYear()}
@@ -36,8 +38,6 @@ function Copyright() {
     </Typography>
   );
 }
-
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,15 +131,7 @@ export default function Dashboard() {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
             Trendr
-          </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>

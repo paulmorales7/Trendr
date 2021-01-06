@@ -4,8 +4,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Title from './Title';
-
+import './TrendrBody.css'
 
 function preventDefault(event) {
   event.preventDefault();
@@ -68,7 +67,7 @@ export default function TrendrBody(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Trendr Icon</Title>
+      Trendr Icon
       <Table className={classes.null}>
         <TableBody>
           {props.data ? (
