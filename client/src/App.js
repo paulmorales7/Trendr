@@ -8,19 +8,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-// import Chart from './dashboard/Chart';
 import CategoryButtons from './dashboard/CategoryButtons';
-import CategorySelected from './dashboard/CategorySelected';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
-
 // Login Stuff//////////////////////////////////
 import Login from './dashboard/Login/Login';
 import { useStateValue } from './StateProvider';
@@ -192,18 +187,6 @@ export default function Dashboard() {
           >
             Trendr
           </Typography>
-          {/* login button below? maybe his/herstory? */}
-          {/* <Typography color="primary" className={classes.categoryIcon}>
-            <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-              <Button id="h" style={{ color: "red" }}>Top Trends</Button>
-              <Button id="s" style={{ color: "orange" }}>Sports</Button>
-              <Button id="m" style={{ color: "yellow" }}>Health</Button>
-              <Button id="t" style={{ color: "green" }}>Science/Tech</Button>
-              <Button id="b" style={{ color: "blue" }}>Business</Button>
-              <Button id="e" style={{ color: "violet" }}>Entertainment</Button>
-              <Button id="all" style={{ color: "white" }}>All</Button>
-            </ButtonGroup>
-          </Typography> */}
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
@@ -217,10 +200,6 @@ export default function Dashboard() {
                 getBusinessData={getBusinessData}
               />
             </Grid>
-            {/* Recent CategorySelected */}
-            <Grid item xs={12} md={12} lg={12}>
-              <CategorySelected />
-            </Grid>
             {/* Recent TrendrBody */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
@@ -232,7 +211,16 @@ export default function Dashboard() {
             {/* TwitterStream */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <TwitterStream tweets={Category === 's' ? sports.twitterData : Category === 'b' ? business.twitterData : []} />
+              <TwitterStream 
+                tweets={
+                  Category === 's' ? sports.twitterData 
+                : Category === 'b' ? business.twitterData 
+                // : Category === 'h' ? top.twitterData 
+                // : Category === 'm' ? health.twitterData 
+                // : Category === 't' ? tech.twitterData 
+                // : Category === 'e' ? entertainment.twitterData 
+                // : Category === 'all' ? all.twitterData 
+                : []} />
               </Paper>
             </Grid>
           </Grid>
