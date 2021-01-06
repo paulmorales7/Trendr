@@ -7,7 +7,18 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import {
+  TwitterTimelineEmbed,
+  TwitterShareButton,
+  TwitterFollowButton,
+  TwitterHashtagButton,
+  TwitterMentionButton,
+  TwitterTweetEmbed,
+  TwitterMomentShare,
+  TwitterDMButton,
+  TwitterVideoEmbed,
+  TwitterOnAirButton,
+} from 'react-twitter-embed';
 
 // This is a placeholder for API data to fill into the segments of the component
 
@@ -22,7 +33,7 @@ const rows = [
   // ),
   // createData(
   //   1,
-  //   // twitter stream 
+  //   // twitter stream
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   // ),
 ];
@@ -37,15 +48,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TwitterStream() {
+export default function TwitterStream(props) {
   const classes = useStyles();
   const [tweets, setTweets] = useState([]);
-  React.useEffect(() => { API.getTwitterStream("s").then((res) => {/*setTweets*/console.log(res/*.data.status*/) }) })
+  // React.useEffect(() => {
+  //   var interval = setInterval(() => API.getTwitterStream('s').then((res) => {
+  //     setTweets(res.data.statuses);
+  //   }), 10000)
+  // }, []);
+  console.log('This is tweets', tweets, typeof(tweets))
+  console.log('This is tweets', props.tweets, typeof(props.tweets))
   return (
     <React.Fragment>
       <Title>Tweets</Title>
 
-      <Table size="small">
+      <Table size='small'>
         <TableBody>
           <TwitterTweetEmbed
             tweetId={''}
@@ -69,11 +86,14 @@ export default function TwitterStream() {
       </Table>
 
       <div className={classes.seeMore}>
-        <Link color="primary" href="## API URL HERE ##" onClick={preventDefault}>
+        <Link
+          color='primary'
+          href='## API URL HERE ##'
+          onClick={preventDefault}
+        >
           Go to source page
         </Link>
       </div>
     </React.Fragment>
-  )
-};
-
+  );
+}
