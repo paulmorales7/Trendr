@@ -1,28 +1,28 @@
 require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const connectDB = require('./config/db');
 const PORT = process.env.PORT || 3001;
+// const connectDB = require('./config/db');
 
-// Express yourself 🎶
+// INITIATE APP... Express yourself 🎶
 const express = require('express');
 const app = express();
 
-// Middleware
+// MIDDLEWARE
 app.use(cors());
 app.use(express.json());
 
-// Connect the Database 
+// CONNECT THE DATABASE
 // connectDB();
 
 
-// Defining Routes
-const entryRouter = require('./routes/entry');
-const usersRouter = require('./routes/users');
+// DEFINING ROUTES
 const trendsRouter = require('./routes/trends');
+const postRoutes = require('./routes/post');
 
-app.use('/history', entryRouter);
-app.use('/users', usersRouter);
+
+// app.use('/users', usersRouter);
+app.use('/', postRoutes);
 app.use('/trends', trendsRouter);
 
 
