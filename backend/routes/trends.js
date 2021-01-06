@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const gTrend = require("../helpers/gTrend");
-const client = require('../helpers/twitter')
+const gTrend = require("../controllers/gTrend");
+const client = require('../controllers/twitter')
 
 router.route("/:trend").get(async (req, res) => {
   console.log(req.params.trend);
