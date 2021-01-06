@@ -6,17 +6,14 @@ import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
 import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
 import API from './utils/API';
-import trendrLogo from './trendrLogo.png'
 
 // Login Stuff//////////////////////////////////
 import Login from './dashboard/Login/Login';
@@ -46,11 +43,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  logo: {
-    maxHeight: '75px',
-  },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    background: '#00cfff',
   },
   menuButton: {
     marginRight: 36,
@@ -136,7 +131,15 @@ export default function Dashboard() {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-          <img src={trendrLogo} alt="trendr-logo" className={classes.logo} />
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            Trendr
+          </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
