@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import CategoryButtons from './dashboard/CategoryButtons';
-import TrendrBody from './dashboard/TrendrBody';
+import TrendrArticle from './dashboard/TrendrArticle';
 import TwitterStream from './dashboard/TwitterStream';
 import History from './dashboard/History';
 import API from './utils/API';
@@ -84,7 +84,54 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     maxHeight: '75px'
-  }
+  },
+  hroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  sroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  mroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  troot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  broot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #00cfff 65%, #5d45ff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  eroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #5d45ff 65%, #b545ff 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  allroot: {
+    fontWeight: 'bold',
+    background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white'
+  },
+  null: {
+    paper: {
+      display: 'none'
+    },
+  },
 }));
 
 export default function Dashboard() {
@@ -217,10 +264,10 @@ export default function Dashboard() {
                 getAllData={getAllData}
               />
             </Grid>
-            {/* TrendrBody */}
+            {/* TrendrArticle */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <TrendrBody
+                <TrendrArticle
                   data={trendrData.googleData}
                 />
               </Paper>
