@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    background: 'linear-gradient(to bottom, #bdc3c7, #2c3e50)',
+    background: 'linear-gradient(to left, #232526, #414345)',
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
