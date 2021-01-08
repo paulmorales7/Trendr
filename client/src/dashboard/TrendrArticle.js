@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TrendrArticle(props) {
   const classes = useStyles();
   return (
+    
     <React.Fragment>
     Trendr Article
       {props.data ? (

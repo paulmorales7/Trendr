@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     shadowRadius: 60,
   },
   hroot: {
-    fontWeight: '50 px',
+    fontWeight: 'bold',
     background: 'linear-gradient(45deg, #ff0032 65%, #ff4b22 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'black'
