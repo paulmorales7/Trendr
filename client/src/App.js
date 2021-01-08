@@ -6,20 +6,19 @@ import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-// import Chart from './dashboard/Chart';
+import Button from '@material-ui/core/Button';
 import CategoryButtons from './dashboard/CategoryButtons';
-import CategorySelected from './dashboard/CategorySelected';
-import TrendrBody from './dashboard/TrendrBody';
+import TrendrArticle from './dashboard/TrendrArticle';
 import TwitterStream from './dashboard/TwitterStream';
+import History from './dashboard/History';
 import API from './utils/API';
+import TrendrLogo from './trendrLogo.png'
+import './App.css'
+
 
 // Login Stuff//////////////////////////////////
 import Login from './dashboard/Login/Login';
@@ -32,9 +31,9 @@ function preventDefault(event) {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/paulmorales7/Trendr">
         Trendr
       </Link>{' '}
       {new Date().getFullYear()}
@@ -43,28 +42,13 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+    background: '#FFFEF2',
   },
   menuButton: {
     marginRight: 36,
@@ -75,33 +59,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    boxSizing: 'border-box',
-  },
-  drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing(7),
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
-    },
+  logout: {
+    marginLeft: "auto",
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    backgroundColor:
-      theme.palette.mode === 'light'
-        ? theme.palette.grey[100]
-        : theme.palette.grey[900],
+    background: 'linear-gradient(to left, #232526, #414345)',
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
@@ -115,10 +78,51 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    background: {
+      hroot: {
+        background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      sroot: {
+        background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      mroot: {
+        background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      troot: {
+        background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      broot: {
+        background: 'linear-gradient(45deg, #00cfff 65%, #0036ff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      eroot: {
+        background: 'linear-gradient(45deg, #0036ff 65%, #b545ff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      allroot: {
+        background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+    },
   },
   fixedHeight: {
     height: 240,
   },
+  logo: {
+    maxHeight: '75px'
+  },
+
 }));
 
 export default function Dashboard() {
@@ -127,25 +131,22 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
-  const [Category, setCategory] = React.useState(null); 
+  
   const [open, setOpen] = React.useState(true);
-  const [sports, setSports] = React.useState({});
-  const [business, setBusiness] = React.useState({});
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const [trendrData, settrendrData] = React.useState({});
+  // const [business, setBusiness] = React.useState({});
 
-  const getData = () => {
+  
+  const getSportsData = () => {
     API.getResultsSPORTS()
       .then(res => {
         const sportsData = {
-          ...sports,
+          ...trendrData,
           googleData: res.data.googleResults,
           twitterData:res.data.tweetsResults
         }
-        setSports(sportsData)
-        setCategory("s")
+        settrendrData(sportsData)
+        
       })
   }
 
@@ -153,12 +154,73 @@ export default function Dashboard() {
     API.getResultsBUSINESS()
       .then(res => {
         const businessData = {
-          ...business,
+          ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
-        setBusiness(businessData)
-        setCategory("b")
+        settrendrData(businessData)
+        
+      })
+  }
+  
+  const getTopData = () => {
+    API.getResultsTOP()
+      .then(res => {
+        const TopData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(TopData)
+        
+      })
+  }
+  const getHealthData = () => {
+    API.getResultsHEALTH()
+      .then(res => {
+        const HealthData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(HealthData)
+        
+      })
+  }
+  const getTechData = () => {
+    API.getResultsTECH()
+      .then(res => {
+        const TechData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(TechData)
+        
+      })
+  }
+  const getEntertainmentData = () => {
+    API.getResultsENTERTAINMENT()
+      .then(res => {
+        const EntertainmentData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(EntertainmentData)
+        
+      })
+  }
+  const getAllData = () => {
+    API.getResultsALL()
+      .then(res => {
+        const AllData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData: res.data.statuses
+        }
+        settrendrData(AllData)
+        
       })
   }
 
@@ -173,67 +235,54 @@ export default function Dashboard() {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            Trendr
-          </Typography>
-          {/* login button below? maybe his/herstory? */}
-          {/* <Typography color="primary" className={classes.categoryIcon}>
-            <ButtonGroup variant="text" aria-label="contained primary button group" onClick={preventDefault}>
-              <Button id="h" style={{ color: "red" }}>Top Trends</Button>
-              <Button id="s" style={{ color: "orange" }}>Sports</Button>
-              <Button id="m" style={{ color: "yellow" }}>Health</Button>
-              <Button id="t" style={{ color: "green" }}>Science/Tech</Button>
-              <Button id="b" style={{ color: "blue" }}>Business</Button>
-              <Button id="e" style={{ color: "violet" }}>Entertainment</Button>
-              <Button id="all" style={{ color: "white" }}>All</Button>
-            </ButtonGroup>
-          </Typography> */}
+          <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
+          <Button color="secondary" alt="Logout" className={classes.logout} >Logout</Button>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Recent CategoryButtons */}
+            
+            {/* CategoryButtons */}
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
-                getData={getData}
+                getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
+                getTopData={getTopData}
+                getHealthData={getHealthData}
+                getTechData={getTechData}
+                getEntertainmentData={getEntertainmentData}
+                getAllData={getAllData}
               />
             </Grid>
-            {/* Recent CategorySelected */}
-            <Grid item xs={12} md={12} lg={12}>
-              <CategorySelected />
-            </Grid>
-            {/* Recent TrendrBody */}
+            {/* TrendrArticle */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <TrendrBody
-                  data={sports.googleData}
+                <TrendrArticle
+                  data={trendrData.googleData}
                 />
               </Paper>
             </Grid>
             {/* TwitterStream */}
-            <Grid item xs={12}>
+            <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
-                <TwitterStream tweets={Category === 's' ? sports.twitterData : Category === 'b' ? business.twitterData : []} />
+              {Object.keys(trendrData).length > 0 && 
+              <TwitterStream 
+                tweets={
+                  trendrData.twitterData                
+                } />}
               </Paper>
             </Grid>
+            {/* Trendr History */}
+            <Grid item xs={12} md={6} lg={6}>
+              <Paper className={classes.paper}>
+              <History
+                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+              />
+              </Paper>
+            </Grid>
+
           </Grid>
           <Box sx={{ pt: 4 }}>
             <Copyright />
