@@ -6,6 +6,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import './TrendrArticle.css'
 
+
+const rows = [
+  
+];
+
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -24,20 +29,17 @@ const useStyles = makeStyles((theme) => ({
 export default function TrendrArticle(props) {
   const classes = useStyles();
   return (
+    
     <React.Fragment>
-      Trendr Article
-      <Table>
-        <TableBody>
-          {props.data ? (
-            <TableRow key={props.data.article.articleTitle}>
-            <TableCell><img src={props.data.image}></img></TableCell>
-            <TableCell>{props.data.article.articleTitle}</TableCell>
-            <TableCell>{props.data.article.snippet}</TableCell>
-            <TableCell><a href={props.data.article.url}>Click here for the article!</a></TableCell>
-            </TableRow>
-          ) : null}
-        </TableBody>
-      </Table>
+    Trendr Article
+      {props.data ? (
+        <Table key={props.data.article.articleTitle}>
+          <TableBody><img src={props.data.image}></img></TableBody>
+          <TableBody>{props.data.article.articleTitle}</TableBody>
+          <TableBody>{props.data.article.snippet}</TableBody>
+          <TableBody><a href={props.data.article.url}>Click here for the article!</a></TableBody>
+        </Table>
+      ) : null}
     </React.Fragment>
   );
 }

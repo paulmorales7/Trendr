@@ -4,6 +4,7 @@
     height: 100vh;
     /* placeholder background until we get a blurred image maybe? */
     background: #212121;
+    /* background: image('./trendrBlur.PNG'); */
 }
 
 .login>div>img {
