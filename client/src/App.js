@@ -13,6 +13,7 @@ import Link from '@material-ui/core/Link';
 import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrBody from './dashboard/TrendrBody';
 import TwitterStream from './dashboard/TwitterStream';
+import History from './dashboard/History';
 import API from './utils/API';
 import TrendrLogo from './trendrLogo.png'
 import './App.css'
@@ -225,14 +226,21 @@ export default function Dashboard() {
               </Paper>
             </Grid>
             {/* TwitterStream */}
-            <Grid item xs={12}>
+            <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
               {Object.keys(trendrData).length > 0 && 
               <TwitterStream 
                 tweets={
-                  trendrData.twitterData
-                
+                  trendrData.twitterData                
                 } />}
+              </Paper>
+            </Grid>
+            {/* TwitterStream */}
+            <Grid item xs={12} md={6} lg={6}>
+              <Paper className={classes.paper}>
+              <History
+                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+              />
               </Paper>
             </Grid>
 
