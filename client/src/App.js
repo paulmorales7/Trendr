@@ -60,10 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    backgroundColor:
-      theme.palette.mode === 'light'
-        ? theme.palette.grey[100]
-        : theme.palette.grey[900],
+    background: 'linear-gradient(to bottom, #bdc3c7, #2c3e50)',
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
