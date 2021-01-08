@@ -77,7 +77,43 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-    background: '#00cfff',
+    background: {
+      hroot: {
+        background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      sroot: {
+        background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      mroot: {
+        background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      troot: {
+        background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      broot: {
+        background: 'linear-gradient(45deg, #00cfff 65%, #0036ff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      eroot: {
+        background: 'linear-gradient(45deg, #0036ff 65%, #b545ff 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+      allroot: {
+        background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white'
+      },
+    },
   },
   fixedHeight: {
     height: 240,
@@ -85,53 +121,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     maxHeight: '75px'
   },
-  hroot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  sroot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #ff4b22 65%, #d6ce18 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  mroot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #d6ce18 65%, #32c613 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  troot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #32c613 65%, #00cfff 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  broot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #00cfff 65%, #5d45ff 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  eroot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #5d45ff 65%, #b545ff 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  allroot: {
-    fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white'
-  },
-  null: {
-    paper: {
-      display: 'none'
-    },
-  },
+
 }));
 
 export default function Dashboard() {
@@ -282,7 +272,7 @@ export default function Dashboard() {
                 } />}
               </Paper>
             </Grid>
-            {/* TwitterStream */}
+            {/* Trendr History */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
               <History

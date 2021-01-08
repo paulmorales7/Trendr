@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   hroot: {
     fontWeight: '50 px',
-    background: 'linear-gradient(45deg, #790909 65%, #ff4b22 90%)',
+    background: 'linear-gradient(45deg, #ff0032 65%, #ff4b22 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'black'
   },
@@ -47,19 +47,19 @@ const useStyles = makeStyles((theme) => ({
   },
   broot: {
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #00cfff 65%, #5d45ff 90%)',
+    background: 'linear-gradient(45deg, #00cfff 65%, #0036ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'black'
   },
   eroot: {
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #5d45ff 65%, #b545ff 90%)',
+    background: 'linear-gradient(45deg, #0036ff 65%, #8200ff 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'black'
   },
   allroot: {
     fontWeight: 'bold',
-    background: 'linear-gradient(45deg, #b545ff 65%, #790909 90%)',
+    background: 'linear-gradient(45deg, #8200ff 65%, #ff006e 90%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'black'
   },
