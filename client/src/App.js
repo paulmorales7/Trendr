@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
 import CategoryButtons from './dashboard/CategoryButtons';
 import TrendrArticle from './dashboard/TrendrArticle';
 import TwitterStream from './dashboard/TwitterStream';
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    display: 'flex',
     background: '#FFFEF2',
   },
   menuButton: {
@@ -57,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  logout: {
+    marginLeft: "auto",
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
@@ -232,6 +236,7 @@ export default function Dashboard() {
       >
         <Toolbar className={classes.toolbar}>
           <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
+          <Button color="secondary" alt="Logout" className={classes.logout} >Logout</Button>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
