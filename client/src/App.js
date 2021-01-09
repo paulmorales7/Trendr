@@ -134,21 +134,28 @@ export default function Dashboard() {
   
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
+  const [buttonClick, setButtonClicks] = React.useState([]);
   // const [business, setBusiness] = React.useState({});
 
-  
-  const getSportsData = () => {
-    API.getResultsSPORTS()
-      .then(res => {
-        const sportsData = {
-          ...trendrData,
-          googleData: res.data.googleResults,
-          twitterData:res.data.tweetsResults
-        }
-        settrendrData(sportsData)
+  getSportsData = {() => {
+     getSportsData();
+     setButtonClicks((prevState) => {
+       !prevState.includes("Sports") && prevState.push("Sports");
+       return [...prevState]
+     })
+   }
+  // const getSportsData = () => {
+  //   API.getResultsSPORTS()
+  //     .then(res => {
+  //       const sportsData = {
+  //         ...trendrData,
+  //         googleData: res.data.googleResults,
+  //         twitterData:res.data.tweetsResults
+  //       }
+  //       settrendrData(sportsData)
         
-      })
-  }
+  //     })
+  // }
 
   const getBusinessData = () => {
     API.getResultsBUSINESS()
