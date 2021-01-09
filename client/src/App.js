@@ -137,7 +137,7 @@ export default function Dashboard() {
   const [buttonClick, setButtonClicks] = React.useState([]);
   // const [business, setBusiness] = React.useState({});
 
-  getSportsData = {() => {
+  getSportsData = () => {
      getSportsData();
      setButtonClicks((prevState) => {
        !prevState.includes("Sports") && prevState.push("Sports");
@@ -284,9 +284,14 @@ export default function Dashboard() {
             {/* Trendr History */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
+
+
               <History
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+              item={buttonClicks.includes("Sports") && sessionStorage.getItem("sports button")}
               />
+
+                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+            
               </Paper>
             </Grid>
 
