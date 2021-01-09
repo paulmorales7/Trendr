@@ -134,28 +134,22 @@ export default function Dashboard() {
   
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
-  const [buttonClick, setButtonClicks] = React.useState([]);
+  const [buttonClicks, setButtonClicks] = React.useState([]);
   // const [business, setBusiness] = React.useState({});
 
-  getSportsData = () => {
-     getSportsData();
-     setButtonClicks((prevState) => {
-       !prevState.includes("Sports") && prevState.push("Sports");
-       return [...prevState]
-     })
-   }
-  // const getSportsData = () => {
-  //   API.getResultsSPORTS()
-  //     .then(res => {
-  //       const sportsData = {
-  //         ...trendrData,
-  //         googleData: res.data.googleResults,
-  //         twitterData:res.data.tweetsResults
-  //       }
-  //       settrendrData(sportsData)
+  
+  const getSportsData = () => {
+    API.getResultsSPORTS()
+      .then(res => {
+        const sportsData = {
+          ...trendrData,
+          googleData: res.data.googleResults,
+          twitterData:res.data.tweetsResults
+        }
+        settrendrData(sportsData)
         
-  //     })
-  // }
+      })
+  }
 
   const getBusinessData = () => {
     API.getResultsBUSINESS()
@@ -254,6 +248,13 @@ export default function Dashboard() {
             {/* CategoryButtons */}
             <Grid item xs={12} md={12} lg={12}>
               <CategoryButtons
+              getSportsData = {() => {
+                 getSportsData();
+                 setButtonClicks((prevState) => {
+                   !prevState.includes("Sports") && prevState.push("Sports");
+                   return [...prevState]
+                 })
+               }}
                 getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
                 getTopData={getTopData}
@@ -290,7 +291,7 @@ export default function Dashboard() {
               item={buttonClicks.includes("Sports") && sessionStorage.getItem("sports button")}
               />
 
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+               
             
               </Paper>
             </Grid>

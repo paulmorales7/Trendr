@@ -36,7 +36,7 @@ export default function TwitterStream(props) {
       <Table>
         <TableBody>
           {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
-          { getSportsData}
+          {props.item}
           {/* {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.title}</TableCell>
