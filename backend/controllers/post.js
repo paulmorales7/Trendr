@@ -1,5 +1,4 @@
 const Post = require('../models/post');
-const gTrend = require('./gTrend')
 
 exports.getPosts = (req, res) => {
   const posts = Post.find()
@@ -11,26 +10,15 @@ exports.getPosts = (req, res) => {
 };
 
 exports.createPost = (req, res) => {
-  try {
-    const results = await gTrend(req.params.trend);
-    var jsonRes = JSON.parse(results);
+  const post = new Post(trend);
 
-    console.log(
-      jsonRes.storySummaries.trendingStories[0]
-    );
-    const trendTopic =
-      jsonRes.storySummaries.trendingStories[0].articles[0].articleTitle
-    console.log(trendTopic)
+  post.save((err, result) => {
+    if (err) {
+        return res.status(400).json({
+            error: err
+        });
+    }
+    res.json(result);
+});
+};
 
-
-  const post = new Post(trendTopic);
-
-  post.save().then((result) => {
-    res.json({
-      post: result,
-    });
-  });
-}
-
-
-//////////////////////////////////////////////
