@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const setSportsData = () => {
-  localStorage.setItem('sports button', 'Sports')
+  sessionStorage.setItem('sports button', 'Sports')
 }
 
 export default function CategoryButtons(props) {

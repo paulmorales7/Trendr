@@ -27,7 +27,7 @@ export default function TwitterStream(props) {
   const [history, setHistory] = useState([]);
 
   const getSportsData = 
-   localStorage.getItem("sports button");
+   sessionStorage.getItem("sports button");
 
   
   return (
