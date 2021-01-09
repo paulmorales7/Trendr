@@ -8,7 +8,7 @@ import './History.css'
 
 
 const rows = [
-  
+
 ];
 
 function preventDefault(event) {
@@ -25,18 +25,23 @@ const useStyles = makeStyles((theme) => ({
 export default function TwitterStream(props) {
   const classes = useStyles();
   const [history, setHistory] = useState([]);
+
+  const getSportsData = 
+   localStorage.getItem("sports button");
+
+  
   return (
     <React.Fragment>
       History
       <Table>
         <TableBody>
           {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
-
-          {rows.map((row) => (
+          { getSportsData}
+          {/* {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.title}</TableCell>
             </TableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </React.Fragment>
