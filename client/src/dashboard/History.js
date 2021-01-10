@@ -29,7 +29,7 @@ export default function TwitterStream(props) {
   const getSportsData = 
    sessionStorage.getItem("sports button");
 
-  
+   console.log('this is the props in history', props.item)
   return (
     <React.Fragment>
       History
@@ -37,6 +37,7 @@ export default function TwitterStream(props) {
         <TableBody>
           {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
           {props.item}
+         
           {/* {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.title}</TableCell>
