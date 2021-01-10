@@ -27,9 +27,9 @@ export default function TwitterStream(props) {
   const [history, setHistory] = useState([]);
 
   const getSportsData = 
-   sessionStorage.getItem("sports button");
+   sessionStorage.getItem("savedData");
 
-   console.log('this is the props in history', props.item)
+   console.log('this is the session', getSportsData)
   return (
     <React.Fragment>
       History
