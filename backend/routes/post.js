@@ -3,7 +3,7 @@ const { getPosts, createPost } = require('../controllers/post');
 
 const router = express.Router();
 
-router.get('/', getPosts);
-router.post('/post', createPost);
+router.get('/history', getPosts);
+router.post('/save', createPost);
 
 module.exports = router;
