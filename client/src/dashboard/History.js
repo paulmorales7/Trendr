@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -22,9 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function TwitterStream(props) {
   const classes = useStyles();
-  const [history, setHistory] = useState([]);
+  
+ 
   return (
     <React.Fragment>
       History
@@ -32,9 +34,10 @@ export default function TwitterStream(props) {
         <TableBody>
           {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
 
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.title}</TableCell>
+          {props.history.map((row, i) => (
+
+            <TableRow key={i}>
+              <TableCell>{row}</TableCell>
             </TableRow>
           ))}
         </TableBody>

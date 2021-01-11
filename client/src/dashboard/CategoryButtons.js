@@ -85,7 +85,7 @@ export default function CategoryButtons(props) {
         <img src={trendrLogo} alt="trendr-logo" className={classes.logo} />
       </Toolbar>
       <Toolbar className={classes.toolbar} color="primary" aria-label="contained primary button group" onClick={preventDefault}>
-        <Button id="h" size='large' onClick={props.getTopData} className={classes.hroot}><span className={classes.buttonText}>Top</span></Button>
+        <Button id="h" size='large' onClick={() => {props.getTopData(); props.saveHistory('Top')}} className={classes.hroot}><span className={classes.buttonText}>Top</span></Button>
         <Button id="s" size='large' onClick={ () => {props.getSportsData(); setSportsData();}} className={classes.sroot}><span className={classes.buttonText}>Sports</span></Button>
         <Button id="m" size='large' onClick={props.getHealthData} className={classes.mroot}><span className={classes.buttonText}>Health</span></Button>
         <Button id="t" size='large' onClick={props.getTechData} className={classes.troot}><span className={classes.buttonText}>Tech</span></Button>
