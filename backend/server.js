@@ -20,9 +20,12 @@ app.use(express.json());
 const trendsRouter = require('./routes/trends');
 const postRoutes = require('./routes/post');
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // app.use('/users', usersRouter);
-
 app.use('/trends', trendsRouter);
 app.use('/', postRoutes);
 
