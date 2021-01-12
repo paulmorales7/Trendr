@@ -91,7 +91,7 @@ export default function CategoryButtons(props) {
         <Button id="t" size='large' onClick={() => { props.getTechData(); props.saveHistory('Tech') }} className={classes.troot}><span className={classes.buttonText}>Tech</span></Button>
         <Button id="b" size='large' onClick={() => { props.getBusinessData(); props.saveHistory('Biz') }} className={classes.broot}><span className={classes.buttonText}>Biz</span></Button>
         <Button id="e" size='large' onClick={() => { props.getEntertainmentData(); props.saveHistory('Entmt') }} className={classes.eroot}><span className={classes.buttonText}>Entmt</span></Button>
-        <Button id="all" size='large' onClick={props.getAllData} className={classes.allroot}><span className={classes.buttonText}>All</span></Button>
+        <Button id="all" size='large' onClick={() => { props.getAllData(); props.saveHistory('All') }} className={classes.allroot}><span className={classes.buttonText}>All</span></Button>
       </Toolbar>
     </React.Fragment>
   );
