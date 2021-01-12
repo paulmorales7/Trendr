@@ -131,22 +131,29 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
-  
+  const [history, setHistory] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
   // const [business, setBusiness] = React.useState({});
 
+  const clearLocal = () => {
+    window.localStorage.clear();
+  }
   
+  React.useEffect(() => {
+    clearLocal()
+  }, [])
+
   const getSportsData = () => {
     API.getResultsSPORTS()
       .then(res => {
         const sportsData = {
           ...trendrData,
           googleData: res.data.googleResults,
-          twitterData:res.data.tweetsResults
+          twitterData: res.data.tweetsResults
         }
         settrendrData(sportsData)
-        
+
       })
   }
 
@@ -159,10 +166,10 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(businessData)
-        
+
       })
   }
-  
+
   const getTopData = () => {
     API.getResultsTOP()
       .then(res => {
@@ -172,7 +179,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(TopData)
-        
+
       })
   }
   const getHealthData = () => {
@@ -184,7 +191,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(HealthData)
-        
+
       })
   }
   const getTechData = () => {
@@ -196,7 +203,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(TechData)
-        
+
       })
   }
   const getEntertainmentData = () => {
@@ -208,7 +215,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(EntertainmentData)
-        
+
       })
   }
   const getAllData = () => {
@@ -220,78 +227,90 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(AllData)
-        
+
       })
   }
+  const saveHistory = (buttonName) => {
+    const history = JSON.parse(localStorage.getItem('trend buttons')) || []
+    history.push(buttonName)
+    localStorage.setItem('trend buttons', JSON.stringify(history))
+    getHistory()
+  }
 
+  const getHistory = () => {
+    const getItems = JSON.parse(localStorage.getItem('trend buttons')) || []
+    setHistory(getItems)
+  }
+  
   return (
     <div id="App">
-    {
-      user ? (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
-        <Toolbar className={classes.toolbar}>
-          <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
-          <Button color="secondary" alt="Logout" className={classes.logout} >Logout</Button>
-        </Toolbar>
-      </AppBar>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            
-            {/* CategoryButtons */}
-            <Grid item xs={12} md={12} lg={12}>
-              <CategoryButtons
-                getSportsData={getSportsData}
-                getBusinessData={getBusinessData}
-                getTopData={getTopData}
-                getHealthData={getHealthData}
-                getTechData={getTechData}
-                getEntertainmentData={getEntertainmentData}
-                getAllData={getAllData}
-              />
-            </Grid>
-            {/* TrendrArticle */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <TrendrArticle
-                  data={trendrData.googleData}
-                />
-              </Paper>
-            </Grid>
-            {/* TwitterStream */}
-            <Grid item xs={12} md={6} lg={6}>
-              <Paper className={classes.paper}>
-              {Object.keys(trendrData).length > 0 && 
-              <TwitterStream 
-                tweets={
-                  trendrData.twitterData                
-                } />}
-              </Paper>
-            </Grid>
-            {/* Trendr History */}
-            <Grid item xs={12} md={6} lg={6}>
-              <Paper className={classes.paper}>
-              <History
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
-              />
-              </Paper>
-            </Grid>
+      {
+        user ? (
+          <div className={classes.root}>
+            <CssBaseline />
+            <AppBar
+              position="absolute"
+              className={clsx(classes.appBar, open && classes.appBarShift)}
+            >
+              <Toolbar className={classes.toolbar}>
+                <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
+                <Button color="secondary" alt="Logout" className={classes.logout} >Logout</Button>
+              </Toolbar>
+            </AppBar>
+            <main className={classes.content}>
+              <div className={classes.appBarSpacer} />
+              <Container maxWidth="lg" className={classes.container}>
+                <Grid container spacing={3}>
 
-          </Grid>
-          <Box sx={{ pt: 4 }}>
-            <Copyright />
-          </Box>
-        </Container>
-      </main>
-    </div>
-    ) : ( <Login />)
-    }
+                  {/* CategoryButtons */}
+                  <Grid item xs={12} md={12} lg={12}>
+                    <CategoryButtons
+                      getSportsData={getSportsData}
+                      saveHistory={saveHistory}
+                      getBusinessData={getBusinessData}
+                      getTopData={getTopData}
+                      getHealthData={getHealthData}
+                      getTechData={getTechData}
+                      getEntertainmentData={getEntertainmentData}
+                      getAllData={getAllData}
+                    />
+                  </Grid>
+                  {/* TrendrArticle */}
+                  <Grid item xs={12}>
+                    <Paper className={classes.paper}>
+                      <TrendrArticle
+                        data={trendrData.googleData}
+                      />
+                    </Paper>
+                  </Grid>
+                  {/* TwitterStream */}
+                  <Grid item xs={12} md={6} lg={6}>
+                    <Paper className={classes.paper}>
+                      {Object.keys(trendrData).length > 0 &&
+                        <TwitterStream
+                          tweets={
+                            trendrData.twitterData
+                          } />}
+                    </Paper>
+                  </Grid>
+                  {/* Trendr History */}
+                  <Grid item xs={12} md={6} lg={6}>
+                    <Paper className={classes.paper}>
+                      <History
+                      history={history}
+                      />
+                    </Paper>
+                  </Grid>
+
+                </Grid>
+                <Box sx={{ pt: 4 }}>
+                  <Copyright />
+                </Box>
+              </Container>
+            </main>
+          </div>
+        ) : (<Login />)
+      }
     </div>
   );
 }

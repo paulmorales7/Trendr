@@ -20,7 +20,7 @@ import {
 
 
 const rows = [
-  
+
 ];
 
 function preventDefault(event) {
@@ -36,16 +36,14 @@ const useStyles = makeStyles((theme) => ({
 export default function TwitterStream(props) {
   const classes = useStyles();
   const [tweets, setTweets] = useState([]);
-  console.log('This is tweets', tweets, typeof(tweets))
-  console.log('This is tweets', props.tweets, typeof(props.tweets))
+  console.log('This is tweets', tweets, typeof (tweets))
+  console.log('This is tweets', props.tweets, typeof (props.tweets))
   return (
     <React.Fragment>
       Tweets
       <Table>
         <TableBody>
-          <TwitterTweetEmbed
-            tweetId={''}
-          />
+          {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)}
 
           {rows.map((row) => (
             <TableRow key={row.id}>
