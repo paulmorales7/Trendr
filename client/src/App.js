@@ -141,7 +141,7 @@ export default function Dashboard() {
     API.getResultsSPORTS()
       .then(res => {
         const sportsData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -154,7 +154,7 @@ export default function Dashboard() {
     API.getResultsBUSINESS()
       .then(res => {
         const businessData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -167,7 +167,7 @@ export default function Dashboard() {
     API.getResultsTOP()
       .then(res => {
         const TopData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -179,7 +179,7 @@ export default function Dashboard() {
     API.getResultsHEALTH()
       .then(res => {
         const HealthData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -191,7 +191,7 @@ export default function Dashboard() {
     API.getResultsTECH()
       .then(res => {
         const TechData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -203,7 +203,7 @@ export default function Dashboard() {
     API.getResultsENTERTAINMENT()
       .then(res => {
         const EntertainmentData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
@@ -215,7 +215,7 @@ export default function Dashboard() {
     API.getResultsALL()
       .then(res => {
         const AllData = {
-          ...trendrData,
+          // ...trendrData,
           googleData: res.data.googleResults,
           twitterData: res.data.statuses
         }
