@@ -7,6 +7,8 @@ export default {
         return axios.get("/trends/" + queryTerm)
 },
 
+
+
     getResultsALL: function(){
         return axios.get('/trends/all')
     },
@@ -27,7 +29,6 @@ export default {
     },
     getResultsTOP: function(){
         return axios.get('/trends/h')
-    },
-
+    }
 };
 
