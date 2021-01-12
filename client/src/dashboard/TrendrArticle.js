@@ -35,8 +35,8 @@ export default function TrendrArticle(props) {
       {props.data ? (
         <Table key={props.data.article.articleTitle}>
           <TableBody><img src={props.data.image}></img></TableBody>
-          <TableBody>{props.data.article.articleTitle}</TableBody>
-          <TableBody>{props.data.article.snippet}</TableBody>
+          <TableBody>{props.data.article.articleTitle.replace(/&#39;/g, "'").replace("&amp;", "&").replace(/&quot;/g, '"')}</TableBody>
+          <TableBody>{props.data.article.snippet.replace(/&#39;/g, "'").replace("&amp;", "&").replace(/&quot;/g, '"')}</TableBody>
           <TableBody><a href={props.data.article.url}>Click here for the article!</a></TableBody>
         </Table>
       ) : null}
