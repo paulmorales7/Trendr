@@ -134,8 +134,14 @@ export default function Dashboard() {
   
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
+  const [history, setHistory] = React.useState([])
   // const [business, setBusiness] = React.useState({});
-
+  const clearLocal = () => {
+    window.localStorage.clear();
+  }
+  React.useEffect(() => {
+    clearLocal()
+  }, [])
   
   const getSportsData = () => {
     API.getResultsSPORTS()
@@ -224,6 +230,16 @@ export default function Dashboard() {
       })
   }
 
+  const saveHistory = (buttonName) => {
+    const history = JSON.parse(localStorage.getItem('trend buttons')) || []
+    history.push(buttonName)
+    localStorage.setItem('trend buttons', JSON.stringify(history))
+    getHistory()
+  }
+  const getHistory = () => {
+    const getItems = JSON.parse(localStorage.getItem('trend buttons')) || []
+    setHistory(getItems)
+  }
   return (
     <div id="App">
     {
@@ -249,6 +265,7 @@ export default function Dashboard() {
               <CategoryButtons
                 getSportsData={getSportsData}
                 getBusinessData={getBusinessData}
+                saveHistory={saveHistory}
                 getTopData={getTopData}
                 getHealthData={getHealthData}
                 getTechData={getTechData}
@@ -278,7 +295,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
               <History
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+               history={history}
               />
               </Paper>
             </Grid>

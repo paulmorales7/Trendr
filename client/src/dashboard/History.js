@@ -23,21 +23,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TwitterStream(props) {
   const classes = useStyles();
-  const [history, setHistory] = useState([]);
+  
   return (
     <React.Fragment>
-      History
-      <Table>
-        <TableBody>
-          {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
+    History
+    <Table>
+      <TableBody>
+        {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
 
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.title}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </React.Fragment>
+        {props.history.map((row, i) => (
+
+          <TableRow key={i}>
+            <TableCell>{row}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </React.Fragment>
   );
 }
