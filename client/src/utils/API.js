@@ -6,9 +6,6 @@ export default {
     getTwitterStream: function(queryTerm){
         return axios.get("/trends/" + queryTerm)
 },
-
-
-
     getResultsALL: function(){
         return axios.get('/trends/all')
     },
@@ -30,5 +27,14 @@ export default {
     getResultsTOP: function(){
         return axios.get('/trends/h')
     }
+
+    // Placeholders for history functions:
+
+    // saveHistory: function(){
+    //     return axios.post('/save')
+    // },
+    // getHistory: function(){
+    //     return axios.get('/history')
+    // }
 };
 
