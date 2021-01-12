@@ -1,4 +1,4 @@
-const Post = require('../models/post');
+const Post = require('../models/Post');
 
 exports.getPosts = (req, res) => {
   const posts = Post.find()
