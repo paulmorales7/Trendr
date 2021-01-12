@@ -136,6 +136,13 @@ export default function Dashboard() {
   const [trendrData, settrendrData] = React.useState({});
   // const [business, setBusiness] = React.useState({});
 
+  const clearLocal = () => {
+    window.localStorage.clear();
+  }
+  
+  React.useEffect(() => {
+    clearLocal()
+  }, [])
 
   const getSportsData = () => {
     API.getResultsSPORTS()

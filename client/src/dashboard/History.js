@@ -8,7 +8,7 @@ import './History.css'
 
 
 const rows = [
-  
+
 ];
 
 function preventDefault(event) {
@@ -23,10 +23,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 export default function TwitterStream(props) {
   const classes = useStyles();
-  
- 
+
+
   return (
     <React.Fragment>
       History
