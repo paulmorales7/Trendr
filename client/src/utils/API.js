@@ -29,16 +29,5 @@ export default {
         return axios.get('/trends/h')
     },
 
-<<<<<<< HEAD
-=======
-    // Not working yet
-
-    // saveHistory: function(){
-    //     return axios.post('/save')
-    // }
-    // getHistory: function(){
-    //     return axios.get('/history')
-    // }
->>>>>>> 857e34a6f191a6c9db695d6d7199a9ac9930b944
 };
 
