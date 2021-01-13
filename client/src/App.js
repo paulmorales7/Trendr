@@ -137,6 +137,55 @@ export default function Dashboard() {
   // const [business, setBusiness] = React.useState({});
 
   
+  const getSportsColor = () => {
+    API.getResultsSPORTS()
+    .then(res => {
+
+    })
+  }
+
+  const getBusinessColor = () => {
+    API.getResultsBUSINESS()
+    .then(res => {
+
+    })
+  }
+
+  const getTopColor = () => {
+    API.getResultsTOP()
+    .then(res => {
+
+    })
+  }
+
+  const getHealthColor = () => {
+    API.getResultsHEALTH()
+    .then(res => {
+
+    })
+  }
+
+  const getTechColor = () => {
+    API.getResultsTECH()
+    .then(res => {
+
+    })
+  }
+
+  const getEntertainmentColor = () => {
+    API.getResultsENTERTAINMENT()
+    .then(res => {
+
+    })
+  }
+
+  const getAllColor = () => {
+    API.getResultsALL()
+    .then(res => {
+
+    })
+  }
+
   const getSportsData = () => {
     API.getResultsSPORTS()
       .then(res => {

@@ -26,7 +26,7 @@ export default function TwitterStream(props) {
   const [history, setHistory] = useState([]);
   return (
     <React.Fragment>
-      History
+      Favorites
       <Table>
         <TableBody>
           {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
