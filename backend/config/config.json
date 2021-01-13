@@ -1,3 +1,4 @@
 {
-    "mongoURI" : "mongodb://localhost/trendr"
+    "mongoURI" : "mongodb+srv://cooperahearn:respect013super@cluster0.30zo0.mongodb.net/Trendr?retryWrites=true&w=majority"
 }
+

@@ -26,15 +26,14 @@ export default {
     },
     getResultsTOP: function(){
         return axios.get('/trends/h')
+    },
+
+    // Save & Fetch History
+    saveHistory: function(){
+        return axios.post('/save')
+    },
+    getHistory: function(){
+        return axios.get('/history')
     }
-
-    // Placeholders for history functions:
-
-    // saveHistory: function(){
-    //     return axios.post('/save')
-    // },
-    // getHistory: function(){
-    //     return axios.get('/history')
-    // }
 };
 
