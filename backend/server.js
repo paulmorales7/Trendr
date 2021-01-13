@@ -2,7 +2,7 @@ require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
-// const connectDB = require('./config/db');
+const connectDB = require('./config/db');
 
 // INITIATE APP... Express yourself 🎶
 const express = require('express');
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // CONNECT THE DATABASE
-// connectDB();
+connectDB();
 
 
 // DEFINING ROUTES
