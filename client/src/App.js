@@ -236,7 +236,7 @@ export default function Dashboard() {
       >
         <Toolbar className={classes.toolbar}>
           <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
-          <Button color="secondary" alt="Logout" className={classes.logout} >Logout</Button>
+          <Button color="secondary" alt="Logout" className={classes.logout} href="/" >Logout</Button>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
