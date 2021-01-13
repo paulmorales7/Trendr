@@ -15,12 +15,23 @@ const useStyles = makeStyles((theme) => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  table: {
+    display: 'flex',
+  },
+  paper: {
+    display: 'flex',
+  },
+  favoritesIcon: {
+    marginLeft: "auto",
+  },
   null: {
     paper: {
       display: 'none'
     },
   },
 }));
+
+// onClick function -here- to save Trendr title & URL to history component
 
 export default function TrendrArticle(props) {
   const classes = useStyles();
@@ -30,9 +41,9 @@ export default function TrendrArticle(props) {
     Trendr Article
     {}
       {props.data ? (
+        
         <Table key={props.data.article.articleTitle}>
-          <StarBorderIcon />
-          <TableBody><img src={props.data.image}></img></TableBody>
+          <TableBody className={classes.table}><img src={props.data.image}></img><StarBorderIcon className={classes.favoritesIcon} /*onClick={saveFavorite}*/ /></TableBody>
           <TableBody>{props.data.article.articleTitle.replace(/&#39;/g, "'").replace("&amp;", "&").replace(/&quot;/g, '"')}</TableBody>
           <TableBody>{props.data.article.snippet.replace(/&#39;/g, "'").replace("&amp;", "&").replace(/&quot;/g, '"')}</TableBody>
           <TableBody><a href={props.data.article.url}>Click here for the article!</a></TableBody>
