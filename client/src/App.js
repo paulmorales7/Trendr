@@ -140,14 +140,14 @@ export default function Dashboard() {
   const getSportsColor = () => {
     API.getResultsSPORTS()
     .then(res => {
-
+      // set className here = to sRoot
     })
   }
 
   const getBusinessColor = () => {
     API.getResultsBUSINESS()
     .then(res => {
-
+      // set className here = to bRoot
     })
   }
 
