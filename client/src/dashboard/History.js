@@ -9,9 +9,7 @@ import axios from "axios";
 
 
 
-const rows = [
-
-];
+const rows = [];
 
 function preventDefault(event) {
   event.preventDefault();
@@ -36,6 +34,7 @@ export default function TwitterStream(props) {
             <TableRow key={row._id}>
               <TableCell>{row.headline}</TableCell>
               <TableCell><a href={row.url}>{row.url}</a></TableCell>
+              <button onClick={props.deleteHistory}>Remove</button>
             </TableRow>
           ))}
 

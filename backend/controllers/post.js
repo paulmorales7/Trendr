@@ -18,7 +18,7 @@ exports.createPost = (req, res) => {
 };
 
 exports.deleteOne = (res, req) => {
-  historyModel.deleteOne({ id: 'DB ITEM ID' }, function (err) {
+  historyModel.deleteOne({ id: '' }, function (err) {
     if (err) return handleError(err);
 
   })};
