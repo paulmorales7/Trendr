@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.get('/history', getPosts);
 router.post('/save', createPost);
-router.post('/delete', deletePost);
+router.post('/delete/:id', deletePost);
 module.exports = router;

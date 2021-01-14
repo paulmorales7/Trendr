@@ -17,7 +17,7 @@ exports.createPost = (req, res) => {
   });
 };
 
-exports.deleteOne = (res, req) => {
+exports.deletePost = (res, req) => {
   historyModel.deleteOne({ id: '' }, function (err) {
     if (err) return handleError(err);
 
