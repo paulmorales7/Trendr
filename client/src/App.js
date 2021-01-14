@@ -18,6 +18,7 @@ import History from './dashboard/History';
 import API from './utils/API';
 import TrendrLogo from './trendrLogo.png'
 import './App.css'
+import axios from "axios"
 
 
 // Login Stuff//////////////////////////////////
@@ -131,12 +132,15 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
-  
+  const [history, setHistory] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
   // const [business, setBusiness] = React.useState({});
 
-  
+  React.useEffect(()=> {
+getHistory()
+  }, [])
+
   const getSportsColor = () => {
     API.getResultsSPORTS()
     .then(res => {
@@ -273,6 +277,23 @@ export default function Dashboard() {
       })
   }
 
+  const getHistory = () => {
+    axios.get("/history")
+      .then((res) => {
+        console.log(res)
+         
+        setHistory(res.data)
+      })
+  }
+
+  const saveHistory = (headline, url) => {
+    axios.post("/save", {headline, url})
+    .then((res) => {
+      console.log(res)
+      getHistory()
+    })
+  }
+
   return (
     <div id="App">
     {
@@ -310,6 +331,7 @@ export default function Dashboard() {
               <Paper className={classes.paper}>
                 <TrendrArticle
                   data={trendrData.googleData}
+                  saveHistory={saveHistory}
                 />
               </Paper>
             </Grid>
@@ -327,7 +349,8 @@ export default function Dashboard() {
             <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.paper}>
               <History
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
+               getHistory={getHistory}
+               history={history}
               />
               </Paper>
             </Grid>

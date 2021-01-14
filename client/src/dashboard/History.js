@@ -25,20 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TwitterStream(props) {
   const classes = useStyles();
-  const [history, setHistory] = useState([]);
-
-  useEffect(() => {
-    getHistory()
-  }, [])
-
-  const getHistory = () => {
-    axios.get("/history")
-      .then((res) => {
-        console.log(res)
-         
-        setHistory(res.data)
-      })
-  }
 
   return (
     <React.Fragment>
@@ -46,10 +32,10 @@ export default function TwitterStream(props) {
       <Table>
         <TableBody>
 
-          {history.map((row) => (
+          {props.history.map((row) => (
             <TableRow key={row._id}>
               <TableCell>{row.headline}</TableCell>
-              <TableCell>{row.url}</TableCell>
+              <TableCell><a href={row.url}>{row.url}</a></TableCell>
             </TableRow>
           ))}
 
