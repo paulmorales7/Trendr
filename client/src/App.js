@@ -295,9 +295,9 @@ export default function Dashboard() {
   }
 
   const deleteHistory = (id) => {
-    axios.delete("/delete")
+    axios.delete("/delete/" + id)
       .then((res) => {
-        console.log('just deleted', res)
+        console.log('delete id', id)
         getHistory()
       })
   }

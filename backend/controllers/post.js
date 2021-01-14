@@ -17,8 +17,10 @@ exports.createPost = (req, res) => {
   });
 };
 
-exports.deletePost = (res, req) => {
-  historyModel.findByIdAndDelete(id, function(err, res){
+exports.deletePost = (req, res) => {
+  console.log('this is req', req.params)
+  historyModel.findByIdAndDelete(req.params.id, function(err, res){
+    
     if (err){ 
       console.log(err) 
   } 

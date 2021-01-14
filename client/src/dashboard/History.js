@@ -34,7 +34,7 @@ export default function TwitterStream(props) {
             <TableRow key={row._id}>
               <TableCell>{row.headline}</TableCell>
               <TableCell><a href={row.url}>{row.url}</a></TableCell>
-              <button onClick={props.deleteHistory}>Remove</button>
+              <button onClick={ () => {props.deleteHistory(row._id)}}>Remove</button>
             </TableRow>
           ))}
 
