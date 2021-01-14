@@ -1,28 +1,35 @@
-const historyModel = require('../models/historyModel');
+const Post = require('../models/Post');
 
 exports.getPosts = (req, res) => {
-  historyModel.find()
-    // .select('_id headline url')
+  const posts = Post.find()
+    .select('_id headline url')
     .then((posts) => {
-      res.json(posts);
+      res.json({ posts });
     })
     .catch((err) => console.log(err));
 };
 
 exports.createPost = (req, res) => {
-  const history = new historyModel(req.body);
+  const post = new Post(req.body);
 
-  history.save().then((result) => {
-    res.json(result);
+  post.save().then((result) => {
+    res.json({
+      post: result,
+    });
   });
 };
 
-exports.deletePost = (req, response) => {
-  console.log('this is req', req.params)
-  historyModel.findByIdAndDelete(req.params.id, function(err, res){
-    
-    if (err) throw err;
+//Maybe async...
 
-    response.sendStatus(204);
-  })
-};
+// exports.createPost = async (req, res) => {
+
+//   const newPost = new Post(req.body);
+
+//   try {
+//       await newPost.save();
+
+//       res.status(201).json(newPost);
+//   } catch (error) {
+//       res.status(409).json({ message: error.message });
+//   }
+// } 
