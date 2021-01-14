@@ -17,17 +17,8 @@ exports.createPost = (req, res) => {
   });
 };
 
-//Maybe async...
+exports.deleteOne = (res, req) => {
+  historyModel.deleteOne({ id: 'DB ITEM ID' }, function (err) {
+    if (err) return handleError(err);
 
-// exports.createPost = async (req, res) => {
-
-//   const newPost = new Post(req.body);
-
-//   try {
-//       await newPost.save();
-
-//       res.status(201).json(newPost);
-//   } catch (error) {
-//       res.status(409).json({ message: error.message });
-//   }
-// } 
+  })};
