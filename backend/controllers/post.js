@@ -17,15 +17,12 @@ exports.createPost = (req, res) => {
   });
 };
 
-exports.deletePost = (req, res) => {
+exports.deletePost = (req, response) => {
   console.log('this is req', req.params)
   historyModel.findByIdAndDelete(req.params.id, function(err, res){
     
-    if (err){ 
-      console.log(err) 
-  } 
-  else{ 
-      console.log("Deleted: ", res); 
-  } 
+    if (err) throw err;
+
+    response.sendStatus(204);
   })
 };
