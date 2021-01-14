@@ -18,6 +18,7 @@ import History from './dashboard/History';
 import API from './utils/API';
 import TrendrLogo from './trendrLogo.png'
 import './App.css'
+import axios from "axios"
 
 
 // Login Stuff//////////////////////////////////
@@ -131,59 +132,62 @@ export default function Dashboard() {
   /////////////////////////////////////////////
 
   const classes = useStyles();
-  
+  const [history, setHistory] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const [trendrData, settrendrData] = React.useState({});
   // const [business, setBusiness] = React.useState({});
 
-  
+  React.useEffect(() => {
+    getHistory()
+  }, [])
+
   const getSportsColor = () => {
     API.getResultsSPORTS()
-    .then(res => {
-      // set className here = to sRoot
-    })
+      .then(res => {
+        // set className here = to sRoot
+      })
   }
 
   const getBusinessColor = () => {
     API.getResultsBUSINESS()
-    .then(res => {
-      // set className here = to bRoot
-    })
+      .then(res => {
+        // set className here = to bRoot
+      })
   }
 
   const getTopColor = () => {
     API.getResultsTOP()
-    .then(res => {
+      .then(res => {
 
-    })
+      })
   }
 
   const getHealthColor = () => {
     API.getResultsHEALTH()
-    .then(res => {
+      .then(res => {
 
-    })
+      })
   }
 
   const getTechColor = () => {
     API.getResultsTECH()
-    .then(res => {
+      .then(res => {
 
-    })
+      })
   }
 
   const getEntertainmentColor = () => {
     API.getResultsENTERTAINMENT()
-    .then(res => {
+      .then(res => {
 
-    })
+      })
   }
 
   const getAllColor = () => {
     API.getResultsALL()
-    .then(res => {
+      .then(res => {
 
-    })
+      })
   }
 
   const getSportsData = () => {
@@ -195,7 +199,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(sportsData)
-        
+
       })
   }
 
@@ -208,10 +212,10 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(businessData)
-        
+
       })
   }
-  
+
   const getTopData = () => {
     API.getResultsTOP()
       .then(res => {
@@ -221,7 +225,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(TopData)
-        
+
       })
   }
   const getHealthData = () => {
@@ -233,7 +237,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(HealthData)
-        
+
       })
   }
   const getTechData = () => {
@@ -245,7 +249,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(TechData)
-        
+
       })
   }
   const getEntertainmentData = () => {
@@ -257,7 +261,7 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(EntertainmentData)
-        
+
       })
   }
   const getAllData = () => {
@@ -269,78 +273,106 @@ export default function Dashboard() {
           twitterData: res.data.statuses
         }
         settrendrData(AllData)
-        
+
+      })
+  }
+
+  const getHistory = () => {
+    axios.get("/history")
+      .then((res) => {
+        console.log(res)
+
+        setHistory(res.data)
+      })
+  }
+
+  const saveHistory = (headline, url) => {
+    axios.post("/save", { headline, url })
+      .then((res) => {
+        console.log(res)
+        getHistory()
+      })
+  }
+
+  const deleteHistory = (id) => {
+    axios.delete("/delete/" + id)
+      .then((res) => {
+        console.log('delete id', id)
+        getHistory()
       })
   }
 
   return (
     <div id="App">
-    {
-      user ? (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
-        <Toolbar className={classes.toolbar}>
-          <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
-          <Button color="secondary" alt="Logout" className={classes.logout} href="/" >Logout</Button>
-        </Toolbar>
-      </AppBar>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            
-            {/* CategoryButtons */}
-            <Grid item xs={12} md={12} lg={12}>
-              <CategoryButtons
-                getSportsData={getSportsData}
-                getBusinessData={getBusinessData}
-                getTopData={getTopData}
-                getHealthData={getHealthData}
-                getTechData={getTechData}
-                getEntertainmentData={getEntertainmentData}
-                getAllData={getAllData}
-              />
-            </Grid>
-            {/* TrendrArticle */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <TrendrArticle
-                  data={trendrData.googleData}
-                />
-              </Paper>
-            </Grid>
-            {/* TwitterStream */}
-            <Grid item xs={12} md={6} lg={6}>
-              <Paper className={classes.paper}>
-              {Object.keys(trendrData).length > 0 && 
-              <TwitterStream 
-                tweets={
-                  trendrData.twitterData                
-                } />}
-              </Paper>
-            </Grid>
-            {/* Trendr History */}
-            <Grid item xs={12} md={6} lg={6}>
-              <Paper className={classes.paper}>
-              <History
-                // data={trendrData.historyData}   <--- simply a placeholder for the actual meat and potatoes
-              />
-              </Paper>
-            </Grid>
+      {
+        user ? (
+          <div className={classes.root}>
+            <CssBaseline />
+            <AppBar
+              position="absolute"
+              className={clsx(classes.appBar, open && classes.appBarShift)}
+            >
+              <Toolbar className={classes.toolbar}>
+                <img src={TrendrLogo} alt="trendr-logo" className={classes.logo} />
+                <Button color="secondary" alt="Logout" className={classes.logout} href="/" >Logout</Button>
+              </Toolbar>
+            </AppBar>
+            <main className={classes.content}>
+              <div className={classes.appBarSpacer} />
+              <Container maxWidth="lg" className={classes.container}>
+                <Grid container spacing={3}>
 
-          </Grid>
-          <Box sx={{ pt: 4 }}>
-            <Copyright />
-          </Box>
-        </Container>
-      </main>
-    </div>
-    ) : ( <Login />)
-    }
+                  {/* CategoryButtons */}
+                  <Grid item xs={12} md={12} lg={12}>
+                    <CategoryButtons
+                      getSportsData={getSportsData}
+                      getBusinessData={getBusinessData}
+                      getTopData={getTopData}
+                      getHealthData={getHealthData}
+                      getTechData={getTechData}
+                      getEntertainmentData={getEntertainmentData}
+                      getAllData={getAllData}
+                    />
+                  </Grid>
+                  {/* TrendrArticle */}
+                  <Grid item xs={12}>
+                    <Paper className={classes.paper}>
+                      <TrendrArticle
+                        data={trendrData.googleData}
+                        saveHistory={saveHistory}
+                      />
+                    </Paper>
+                  </Grid>
+                  {/* TwitterStream */}
+                  <Grid item xs={12} md={6} lg={6}>
+                    <Paper className={classes.paper}>
+                      {Object.keys(trendrData).length > 0 &&
+                        <TwitterStream
+                          tweets={
+                            trendrData.twitterData
+                          } />}
+                    </Paper>
+                  </Grid>
+                  {/* Trendr History */}
+                  <Grid item xs={12} md={6} lg={6}>
+                    <Paper className={classes.paper}>
+                      <History
+                        getHistory={getHistory}
+                        history={history}
+                        deleteHistory={deleteHistory}
+                      />
+                    </Paper>
+                  </Grid>
+
+                </Grid>
+                <Box sx={{ pt: 4 }}>
+                  <Copyright />
+                </Box>
+              </Container>
+            </main>
+          </div>
+        ) : (<Login />)
+      }
     </div>
   );
 }

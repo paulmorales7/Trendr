@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import './History.css'
+import axios from "axios";
 
 
-const rows = [
-  
-];
+
+const rows = [];
 
 function preventDefault(event) {
   event.preventDefault();
@@ -23,19 +23,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TwitterStream(props) {
   const classes = useStyles();
-  const [history, setHistory] = useState([]);
+
   return (
     <React.Fragment>
       Favorites
       <Table>
         <TableBody>
-          {/* {props.tweets.length > 0 && props.tweets.map(tweet => <TwitterTweetEmbed tweetId={tweet.id_str} />)} */}
 
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.title}</TableCell>
+          {props.history.map((row) => (
+            <TableRow key={row._id}>
+              <TableCell>{row.headline}</TableCell>
+              <TableCell><a href={row.url}>{row.url}</a></TableCell>
+              <button onClick={ () => {props.deleteHistory(row._id)}}>Remove</button>
             </TableRow>
           ))}
+
         </TableBody>
       </Table>
     </React.Fragment>
