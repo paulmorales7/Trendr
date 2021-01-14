@@ -298,7 +298,7 @@ export default function Dashboard() {
     axios.delete("/delete/" + id)
       .then((res) => {
         console.log('delete id', id)
-        getHistory()
+        saveHistory()
       })
   }
 
